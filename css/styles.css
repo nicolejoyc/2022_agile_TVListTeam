@@ -8,9 +8,13 @@
   outline-style: none;
 }
 
-.header_right {
-  text-align: right;
-  float: right;
-  background: #D3D3D3;
+.header_center {
   color: #00000;
+  text-align: center;
+}
+
+.header_right {
+  color: #00000;
+  text-align: right;
+  margin-right: 16px;
 }
