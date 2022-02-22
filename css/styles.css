@@ -33,7 +33,7 @@ a.header_bottom_right {
   padding: 10px;
   float: right;
   position: absolute; 
-  bottom: 0; 
+  top: auto; 
   right: 0; 
   width: 100px; 
   text-align:right;
