@@ -7,3 +7,7 @@
   text-decoration: none;
   outline-style: none;
 }
+
+.header_right {
+	text-align: right;
+}
