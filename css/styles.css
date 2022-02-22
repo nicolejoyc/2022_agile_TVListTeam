@@ -10,14 +10,12 @@
 
 .header_center {
   color: #000;
-  background-color: #F8F8F8;
-  position: absolute;
-  center: 0;
+  align-items: center;
+  justify-content: center
 }
 
 a.header_right {
   color: #000;
-  background-color: #F8F8F8;
   text-decoration: none;
   padding-right: 15px;
   position: absolute;
@@ -31,13 +29,11 @@ a.header_right:hover {
 
 main {
   color: #000;
-  background-color: #F8F8F8;
   padding: 20px;
 }
 
 footer {
   color: #000;
-  background-color: #F8F8F8;
   font-size: .60em;
   font-style: italic;
   text-align: center;
