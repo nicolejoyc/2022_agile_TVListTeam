@@ -6,6 +6,53 @@
   <title>TV List - Add Show or Movie</title>
 </head>
 <body>
-  <h1>TV List Project</h1>
+  <h1>Add a Show or Movie</h1>
+  <div>
+    <form id="addShowMovieForm" action="">
+      <label for="title">Title</label>
+      <input id="title" name="title" type="text">
+
+      <div>
+        <input id="show" name="tvType" type="radio">
+        <label for="show">Show</label>
+
+        <input id="movie" name="tvType" type="radio">
+        <label for="movie">Movie</label>
+      </div>
+
+      <label for="genre">Genre</label>
+      <select id="genre" name="genre">
+        <option value="action">Action</option>
+        <option value="animation">Animation</option>
+        <option value="anime">Anime</option>
+        <option value="comedy">Comedy</option>
+        <option value="crime">Crime</option>
+        <option value="documentary">Documentary</option>
+        <option value="drama">Drama</option>
+        <option value="fantasy">Fantasy</option>
+        <option value="historical">Historical</option>
+        <option value="horror">Horror</option>
+        <option value="musical">Musical</option>
+        <option value="mystery">Mystery</option>
+        <option value="realityTV">Reality TV</option>
+        <option value="romance">Romance</option>
+        <option value="romcom">Romantic Comedy</option>
+        <option value="sciFi">Science Fiction</option>
+        <option value="thriller">Thriller</option>
+        <option value="western">Western</option>
+      </select>
+
+      <label for="length">Length (minutes)</label>
+      <input id="length" name="length" type="text">
+
+      <label for="wishlist">Add to Wishlist?</label>
+      <input id="wishlist" name="wishlist" type="checkbox">
+
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+
+  <!-- JS files -->
+  <script src="js/addShowMovie.js"></script>
 </body>
 </html>
