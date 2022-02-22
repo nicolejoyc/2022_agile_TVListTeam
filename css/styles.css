@@ -10,8 +10,9 @@
 
 .header_center {
   color: #000;
-  padding: 20px;
   text-align: center;
+  float: center;
+  padding: 10px;
 }
 
 a.header_right {
