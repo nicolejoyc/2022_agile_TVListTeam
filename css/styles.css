@@ -8,6 +8,14 @@
   outline-style: none;
 }
 
+main {
+  background-color: #F0F0F0;
+}
+
+.header {
+  background-color: #FF2424;
+}
+
 .header_center {
   color: #000;
   text-align: center;
