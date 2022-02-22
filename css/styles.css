@@ -15,8 +15,14 @@
 
 .header_right {
   color: #00000;
+  background-color: #D3D3D3;
+  text-decoration: none;
   text-align: right;
-  float: right;
-  margin-top: 8;
-  margin-right: 16;
+  height: 1.2em;
+  padding: 3px 6px;
+  margin 10px 0px;
+  border-left: 2px solid white;
+  border-top: 2px solid white;
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
 }
