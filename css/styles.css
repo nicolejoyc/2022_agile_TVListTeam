@@ -14,7 +14,7 @@
   float: center;
 }
 
-.header_right {
+a.header_right {
   color: #000;
   text-decoration: none;
   text-align: right;
@@ -22,7 +22,7 @@
   float: right;
 }
 
-.header_right:hover {
+a.header_right:hover {
   color: #000;
   text-decoration: underline;
 }
