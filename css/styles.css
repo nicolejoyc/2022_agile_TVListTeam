@@ -11,7 +11,7 @@
 .header_center {
   color: #000;
   text-align: center;
-  margin: auto;
+  float: center;
 }
 
 .header_right {
@@ -19,6 +19,7 @@
   text-decoration: none;
   text-align: right;
   padding-right: 15px;
+  float: right;
 }
 
 .header_right:hover {
