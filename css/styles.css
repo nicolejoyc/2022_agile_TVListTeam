@@ -7,19 +7,18 @@
   text-decoration: none;
   outline-style: none;
 }
-#D14F4F
+
 .header_center {
   color: #000;
-  background-color: #D14F4F;
-  text-align: center;
-  float: center;
+  background-color: #F8F8F8;
+  position: absolute;
+  center: 0;
 }
 
 a.header_right {
   color: #000;
-  background-color: #D14F4F;
+  background-color: #F8F8F8;
   text-decoration: none;
-  text-align: right;
   padding-right: 15px;
   position: absolute;
   right: 0;
@@ -27,17 +26,17 @@ a.header_right {
 
 a.header_right:hover {
   color: #000;
-  background-color: #D14F4F;
   text-decoration: underline;
 }
 
 main {
-  background-color: #CCC;
+  background-color: #F8F8F8;
+  padding: 20px;
 }
 
 footer {
   color: #000;
-  background-color: #D14F4F;
+  background-color: #F8F8F8;
   font-size: .60em;
   font-style: italic;
   text-align: center;
