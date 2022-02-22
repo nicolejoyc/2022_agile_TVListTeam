@@ -10,8 +10,7 @@
 
 .header_center {
   color: #000;
-  align-items: center;
-  justify-content: center
+  padding: 15px;
 }
 
 a.header_right {
