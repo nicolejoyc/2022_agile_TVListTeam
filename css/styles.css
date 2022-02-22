@@ -18,9 +18,14 @@
   background-color: #D3D3D3;
   text-decoration: none;
   text-align: right;
+  border-left: 2px solid white;
+  border-top: 2px solid white;
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
 }
 
 .header_right:hover {
   background-color: #DFDFDF;
   text-decoration: underline;
+  text-align: right;
 }
