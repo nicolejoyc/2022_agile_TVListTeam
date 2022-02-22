@@ -11,4 +11,6 @@
 .header_right {
   text-align: right;
   float: right;
+  background: #D3D3D3;
+  color: #00000;
 }
