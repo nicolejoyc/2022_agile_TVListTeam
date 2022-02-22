@@ -8,24 +8,14 @@
   outline-style: none;
 }
 
-main {
-  background-color: #F0F0F0;
-}
-
-header {
-  background-color: #FF2424;
-}
-
 .header_center {
   color: #000;
-  background-color: #FF2424;
   text-align: center;
   float: center;
 }
 
 a.header_right {
   color: #000;
-  background-color: #FF2424;
   text-decoration: none;
   text-align: right;
   padding-right: 15px;
@@ -36,4 +26,13 @@ a.header_right {
 a.header_right:hover {
   color: #000;
   text-decoration: underline;
+}
+
+footer {
+  color: #000;
+  font-size: .60em;
+  font-style: italic;
+  text-align: center;
+  float: center;
+  padding: 10px;
 }
