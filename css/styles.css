@@ -8,23 +8,15 @@
   outline-style: none;
 }
 
-.header_center {
+a.header_center {
   color: #000;
+  text-decoration: none;
   text-align: center;
   float: center;
   padding: 10px;
 }
 
-a.header_right {
-  color: #000;
-  text-decoration: none;
-  text-align: right;
-  border: 0;
-  float: right;
-  padding: 10px;
-}
-
-a.header_right:hover {
+a.header_center:hover {
   color: #000;
   text-decoration: underline;
 }
