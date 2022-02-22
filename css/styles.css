@@ -8,7 +8,7 @@
   outline-style: none;
 }
 
-a.header_center {
+.header_center {
   color: #000;
   text-decoration: none;
   text-align: center;
@@ -16,7 +16,7 @@ a.header_center {
   padding: 10px;
 }
 
-a.header_center:hover {
+.header_center:hover {
   color: #000;
   text-decoration: underline;
 }
