@@ -19,7 +19,7 @@ a.header_right {
   color: #000;
   text-decoration: none;
   text-align: right;
-  float: right;
+  border: 0;
   padding: 10px;
 }
 
