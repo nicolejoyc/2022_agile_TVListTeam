@@ -20,6 +20,7 @@ a.header_right {
   text-decoration: none;
   text-align: right;
   border: 0;
+  float: right;
   padding: 10px;
 }
 
