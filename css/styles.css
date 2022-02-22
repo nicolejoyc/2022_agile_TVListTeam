@@ -18,10 +18,12 @@
 a.header_right {
   color: #000;
   text-decoration: none;
-  text-align: right;
-  border: 0;
-  float: right;
   padding: 10px;
+  position: absolute; 
+  top: 0; 
+  right: 0; 
+  width: 100px; 
+  text-align:right;
 }
 
 a.header_right:hover {
