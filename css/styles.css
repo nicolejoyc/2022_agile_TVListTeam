@@ -15,7 +15,7 @@
   padding: 10px;
 }
 
-a.header_right {
+a.header_top_right {
   color: #000;
   text-decoration: none;
   padding: 10px;
@@ -26,7 +26,23 @@ a.header_right {
   text-align:right;
 }
 
-a.header_right:hover {
+a.header_bottom_right {
+  color: #000;
+  text-decoration: none;
+  padding: 10px;
+  position: absolute; 
+  bottom: 0; 
+  right: 0; 
+  width: 100px; 
+  text-align:right;
+}
+
+a.header_top_right:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+a.header_bottom_right:hover {
   color: #000;
   text-decoration: underline;
 }
