@@ -27,13 +27,13 @@ a.header_top_right {
   text-align:right;
 }
 
-a.header_bottom_right {
+a.header_top_right_below {
   color: #000;
   text-decoration: none;
   padding: 10px;
   float: right;
   position: absolute; 
-  top: 2%; 
+  top: 5%; 
   right: 0; 
   width: 100px; 
   text-align:right;
@@ -44,7 +44,7 @@ a.header_top_right:hover {
   text-decoration: underline;
 }
 
-a.header_bottom_right:hover {
+a.header_top_right_below:hover {
   color: #000;
   text-decoration: underline;
 }
