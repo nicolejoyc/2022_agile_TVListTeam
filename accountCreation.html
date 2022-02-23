@@ -8,11 +8,16 @@
   </head>
 
   <body>
-    
-     
+    <nav>
+    <a class="header_top_right" href="index.html">Home</a>
+    <a class="header_top_right_below" href="login.html">Login</a>
+    </nav>
+
         <h1>Account Creation</h1>
-    
-        <form action="/action_page.php">
+        <br>
+        <p>Become a member, your email address will be your user name.</p>
+        <br>
+        <form action="login.html"method="POST">
 
             <label for="fname">First Name:</label><br>
             <input type="text" id="fname" name="fname" value=""><br>
@@ -23,25 +28,56 @@
             <label for="email">Email:</label><br>
             <input type="email" id="email" name="email" value=""><br>
 
-            <label for="username">Username:</label><br>
-            <input type="text" id="username" name="username"><br>
-
             <label for="pwd">Password:</label><br>
             <input type="password" id="pwd" name="pwd" value=""><br>
 
             <label for="pwd2">Confirm Password:</label><br>
             <input type="password" id="pwd2" name="pwd2"><br><br>
 
+            <p>Please select your favorite genres.(you may select more than one)</p>
+            <br>
+            <input type="checkbox" id="genre1" name="genre1" value="action">
+            <label for="genre1"> Action</label><br>
+            <input type="checkbox" id="genre2" name="genre2" value="animation">
+            <label for="genre2"> Animation</label><br>
+            <input type="checkbox" id="genre3" name="genre3" value="anime">
+            <label for="genre3"> Anime</label><br>
+            <input type="checkbox" id="genre4" name="genre4" value="comedy">
+            <label for="genre4"> Comedy</label><br>
+            <input type="checkbox" id="genre5" name="genre5" value="crime">
+            <label for="genre5"> Crime</label><br>
+            <input type="checkbox" id="genre6" name="genre6" value="documentary">
+            <label for="genre6"> Documentary</label><br>
+            <input type="checkbox" id="genre7" name="genre7" value="drama">
+            <label for="genre7"> Drama</label><br>
+            <input type="checkbox" id="genre8" name="genre8" value="fantasy">
+            <label for="genre8"> Fantasy</label><br>
+            <input type="checkbox" id="genre9" name="genre9" value="historical">
+            <label for="genre9"> Historical</label><br>
+            <input type="checkbox" id="genre10" name="genre10" value="horror">
+            <label for="genre10"> Horror</label><br>
+            <input type="checkbox" id="genre11" name="genre11" value="musical">
+            <label for="genre11"> Musical</label><br>
+            <input type="checkbox" id="genre12" name="genre12" value="mystery">
+            <label for="genre12"> Mystery</label><br>
+            <input type="checkbox" id="genre13" name="genre13" value="realityTV">
+            <label for="genre13"> RealityTV</label><br>
+            <input type="checkbox" id="genre14" name="genre14" value="romance">
+            <label for="genre14"> Romance</label><br>
+            <input type="checkbox" id="genre15" name="genre15" value="romcom">
+            <label for="genre15"> Romantic Comedy</label><br>
+            <input type="checkbox" id="genre16" name="genre16" value="sciFi">
+            <label for="genre16"> Science Fiction</label><br>
+            <input type="checkbox" id="genre17" name="genre17" value="thriller">
+            <label for="genre17"> Thriller</label><br>
+            <input type="checkbox" id="genre18" name="genre18" value="western">
+            <label for="genre18"> Western</label><br><br>
+
             <input type="submit" value="Submit">
           </form> 
 
-
-
-
-
-
       <footer>
-
+        <small>Copyright &copy; 2022 TV List Team - All rights reserved.</small>
       </footer>
  </body>
 </html>
