@@ -28,7 +28,7 @@ $(function() {
         // Delete done, chain complete
       };
       // Database delete transaction
-      let deleteTransactor = new DBDeleteTransaction(null, deleteRspHandler);
+      let deleteTransactor = new DBDeleteTransaction(deleteRspHandler);
 
       // Database read response handler
       readRspHandler = (obj) => {
@@ -37,7 +37,7 @@ $(function() {
         deleteTransactor.sendRequest('test', id);
       };
       // Database read transaction
-      let readTransactor   = new DBReadTransaction(null, readRspHandler);
+      let readTransactor   = new DBReadTransaction(readRspHandler);
 
       // Database create response handler
       createRspHandler = (obj) => {
@@ -46,7 +46,7 @@ $(function() {
         readTransactor.sendRequest('test', id);
       };
       // Database create transaction
-      let createTransactor = new DBCreateTransaction(null, createRspHandler);
+      let createTransactor = new DBCreateTransaction(createRspHandler);
 
       // Send database create request (create table if doesn't exist)
       createTransactor.sendRequest('test', { 'id': id, 'name': 'John', 'age': 35, 'member': true });

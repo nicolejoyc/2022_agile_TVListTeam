@@ -2,8 +2,8 @@
  * M3O Database Cloud Service Transaction
  */
 class M3oDatabaseTransaction extends M3oCloudTransaction {
-  constructor(caller, rspHandler, errHandler) {
-    super(caller, rspHandler, errHandler);
+  constructor(rspHandler, errHandler) {
+    super(rspHandler, errHandler);
   }
 }
 
