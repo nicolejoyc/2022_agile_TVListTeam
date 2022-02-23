@@ -13,10 +13,10 @@
       <input id="title" name="title" type="text">
 
       <div>
-        <input id="show" name="tvType" type="radio">
+        <input id="show" name="tvType" type="radio" value="Show">
         <label for="show">Show</label>
 
-        <input id="movie" name="tvType" type="radio">
+        <input id="movie" name="tvType" type="radio" value="Movie">
         <label for="movie">Movie</label>
       </div>
 
@@ -53,6 +53,12 @@
   </div>
 
   <!-- JS files -->
+  <!-- ORDER OF FILES IMPORTANT! -->
+  <!-- M3oCloudTransaction must load before M3oDatabaseTransaction
+       which must load before the addShowMovie js file -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="js/M3oCloudTransaction.js"></script>
+  <script src="js/M3oDatabaseTransaction.js"></script>
   <script src="js/addShowMovie.js"></script>
 </body>
 </html>
