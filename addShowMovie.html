@@ -3,50 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <link href="css/styles.css" rel="stylesheet">
+  <link href="css/addShowMovie.css" rel="stylesheet">
   <title>TV List - Add Show or Movie</title>
 </head>
 <body>
   <h1>Add a Show or Movie</h1>
   <div>
     <form id="addShowMovieForm" action="">
-      <label for="title">Title</label>
+      <label for="title">Title:</label>
       <input id="title" name="title" type="text">
 
       <div>
-        <input id="show" name="tvType" type="radio" value="Show">
+        <input id="show" name="showOrMovie" type="radio" value="Show">
         <label for="show">Show</label>
 
-        <input id="movie" name="tvType" type="radio" value="Movie">
+        <input id="movie" name="showOrMovie" type="radio" value="Movie">
         <label for="movie">Movie</label>
       </div>
 
-      <label for="genre">Genre</label>
-      <select id="genre" name="genre">
-        <option value="action">Action</option>
-        <option value="animation">Animation</option>
-        <option value="anime">Anime</option>
-        <option value="comedy">Comedy</option>
-        <option value="crime">Crime</option>
-        <option value="documentary">Documentary</option>
-        <option value="drama">Drama</option>
-        <option value="fantasy">Fantasy</option>
-        <option value="historical">Historical</option>
-        <option value="horror">Horror</option>
-        <option value="musical">Musical</option>
-        <option value="mystery">Mystery</option>
-        <option value="realityTV">Reality TV</option>
-        <option value="romance">Romance</option>
-        <option value="romcom">Romantic Comedy</option>
-        <option value="sciFi">Science Fiction</option>
-        <option value="thriller">Thriller</option>
-        <option value="western">Western</option>
-      </select>
+      <label for="director">Director:</label>
+      <input id="director" name="director" type="text">
 
-      <label for="length">Length (minutes)</label>
+      <label for="releaseYear">Release Year:</label>
+      <input id="releaseYear" name="releaseYear" type="text">
+
+      <div>
+        <label for="genre">Genre:</label>
+        <select id="genre" name="genre">
+          <option value="action">Action</option>
+          <option value="animation">Animation</option>
+          <option value="anime">Anime</option>
+          <option value="comedy">Comedy</option>
+          <option value="crime">Crime</option>
+          <option value="documentary">Documentary</option>
+          <option value="drama">Drama</option>
+          <option value="fantasy">Fantasy</option>
+          <option value="historical">Historical</option>
+          <option value="horror">Horror</option>
+          <option value="musical">Musical</option>
+          <option value="mystery">Mystery</option>
+          <option value="realityTV">Reality TV</option>
+          <option value="romance">Romance</option>
+          <option value="romcom">Romantic Comedy</option>
+          <option value="sciFi">Science Fiction</option>
+          <option value="thriller">Thriller</option>
+          <option value="western">Western</option>
+          <option value="other">Other</option>
+        </select>
+
+        <label id="otherLbl" for="otherTxt">Enter Other Genre:</label>
+        <input id="otherTxt" name="otherTxt" type="text">
+      </div>
+
+      <label for="length">Length (minutes):</label>
       <input id="length" name="length" type="text">
 
-      <label for="wishlist">Add to Wishlist?</label>
+      <input id="viewed" name="viewed" type="checkbox">
+      <label for="viewed">Viewed?</label>
+
       <input id="wishlist" name="wishlist" type="checkbox">
+      <label for="wishlist">Add to Wishlist?</label>
 
       <input type="submit" value="Submit">
     </form>
