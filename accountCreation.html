@@ -17,7 +17,10 @@
         <br>
         <p>Become a member, your email address will be your user name.</p>
         <br>
-        <form action="login.html"method="POST">
+        
+
+          <form id="accountCreation" action="login.html" onsubmit="return validateForm()" onsubmit="return create" method="post">
+
 
             <label for="fname">First Name:</label><br>
             <input type="text" id="fname" name="fname" value=""><br>
@@ -79,5 +82,10 @@
       <footer>
         <small>Copyright &copy; 2022 TV List Team - All rights reserved.</small>
       </footer>
+  <!-- JS files -->
+       <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+       <script src="js/accountCreation.js"></script>
+
  </body>
 </html>
