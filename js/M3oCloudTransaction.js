@@ -11,9 +11,7 @@
 class M3oCloudTransaction {
 
   // Initialize cloud transaction
-  constructor(caller, rspHandler, errHandler) {
-    // Calling object
-    this.caller = caller;
+  constructor(rspHandler, errHandler) {
     // Handlers
     this.rspHandler = rspHandler;
     this.errHandler = errHandler;
