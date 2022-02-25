@@ -33,7 +33,7 @@ class M3oCloudTransaction {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + m3oKey,
+        'Authorization': 'Bearer ' + m3oKeyObj.getKey(),
       },
       body: JSON.stringify(rqData)
     }).then(function(response) {
