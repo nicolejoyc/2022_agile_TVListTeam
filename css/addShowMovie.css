@@ -1,3 +1,17 @@
 #otherTxt, #otherLbl {
   display: none;
 }
+
+#currentRating {
+  display: inline;
+}
+
+#ratingDiv {
+  display: none;
+}
+
+#submit {
+  display: block;
+  margin-top: 1rem;
+}
+
