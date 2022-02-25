@@ -30,6 +30,7 @@
       <div>
         <label for="genre">Genre:</label>
         <select id="genre" name="genre">
+          <option disabled selected value></option>
           <option value="action">Action</option>
           <option value="animation">Animation</option>
           <option value="anime">Anime</option>
@@ -64,7 +65,13 @@
       <input id="wishlist" name="wishlist" type="checkbox">
       <label for="wishlist">Add to Wishlist?</label>
 
-      <input type="submit" value="Submit">
+      <div id="ratingDiv">
+        <label for="rating">Rating:</label>
+        <input id="rating" type="range" min="0" max="5" value="0">
+        <p id="currentRating"></p>
+      </div>
+
+      <input id="submit" type="submit" value="Submit">
     </form>
   </div>
 
