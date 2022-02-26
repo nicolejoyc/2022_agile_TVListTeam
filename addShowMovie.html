@@ -9,23 +9,23 @@
 <body>
   <h1>Add a Show or Movie</h1>
   <div>
-    <form id="addShowMovieForm" action="">
+    <form id="add-show-movie-form" action="">
       <label for="title">Title:</label>
       <input id="title" name="title" type="text">
 
       <div>
-        <input id="show" name="showOrMovie" type="radio" value="Show">
+        <input id="show" name="show-or-movie" type="radio" value="Show">
         <label for="show">Show</label>
 
-        <input id="movie" name="showOrMovie" type="radio" value="Movie">
+        <input id="movie" name="show-or-movie" type="radio" value="Movie">
         <label for="movie">Movie</label>
       </div>
 
       <label for="director">Director:</label>
       <input id="director" name="director" type="text">
 
-      <label for="releaseYear">Release Year:</label>
-      <input id="releaseYear" name="releaseYear" type="text">
+      <label for="release-year">Release Year:</label>
+      <input id="release-year" name="release-year" type="text">
 
       <div>
         <label for="genre">Genre:</label>
@@ -43,17 +43,17 @@
           <option value="horror">Horror</option>
           <option value="musical">Musical</option>
           <option value="mystery">Mystery</option>
-          <option value="realityTV">Reality TV</option>
+          <option value="reality-tv">Reality TV</option>
           <option value="romance">Romance</option>
-          <option value="romcom">Romantic Comedy</option>
-          <option value="sciFi">Science Fiction</option>
+          <option value="rom-com">Romantic Comedy</option>
+          <option value="sci-fi">Science Fiction</option>
           <option value="thriller">Thriller</option>
           <option value="western">Western</option>
           <option value="other">Other</option>
         </select>
 
-        <label id="otherLbl" for="otherTxt">Enter Other Genre:</label>
-        <input id="otherTxt" name="otherTxt" type="text">
+        <label id="other-lbl" for="other-txt">Enter Other Genre:</label>
+        <input id="other-txt" name="other-txt" type="text">
       </div>
 
       <label for="length">Length (minutes):</label>
@@ -65,10 +65,10 @@
       <input id="wishlist" name="wishlist" type="checkbox">
       <label for="wishlist">Add to Wishlist?</label>
 
-      <div id="ratingDiv">
+      <div id="rating-div">
         <label for="rating">Rating:</label>
         <input id="rating" type="range" min="0" max="5" value="0">
-        <p id="currentRating"></p>
+        <p id="current-rating"></p>
       </div>
 
       <input id="submit" type="submit" value="Submit">

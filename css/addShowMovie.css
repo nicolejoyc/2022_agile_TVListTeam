@@ -1,12 +1,13 @@
-#otherTxt, #otherLbl {
+#other-txt,
+#other-lbl {
   display: none;
 }
 
-#currentRating {
+#current-rating {
   display: inline;
 }
 
-#ratingDiv {
+#rating-div {
   display: none;
 }
 
@@ -14,4 +15,3 @@
   display: block;
   margin-top: 1rem;
 }
-

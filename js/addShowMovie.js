@@ -1,17 +1,27 @@
-m3oKey = "NzZjMGM4ZjYtYmUyOC00NTFmLWIzYjEtNjY2NjEyMjIwYmRl";
+m3oKey = "";
+
+// Function that returns the correct rating
+// prevents adding a rating to a movie that has not been viewed
+function getInputRating() {
+  if (document.querySelector("#viewed").checked) {
+    return document.querySelector("#rating").value;
+  } else {
+    return "";
+  }
+}
 
 function addShowMovie(recordID) {
   var createTransactor = new DBCreateTransaction();
 
   var inputTitle = document.querySelector("#title");
-  var inputShowOrMovie = document.querySelector('input[name="showOrMovie"]:checked');
+  var inputShowOrMovie = document.querySelector('input[name="show-or-movie"]:checked');
   var inputDirector = document.querySelector("#director");
-  var inputReleaseYear = document.querySelector("#releaseYear");
+  var inputReleaseYear = document.querySelector("#release-year");
   // Created variables for drop down genre, and other genre, which
   // is the text box.
   // inputGenre will be assigned below
   var inputSelectedGenre = document.querySelector("#genre");
-  var inputOtherGenre = document.querySelector("#otherTxt");
+  var inputOtherGenre = document.querySelector("#other-txt");
   var inputGenre = "";
   var inputLength = document.querySelector("#length");
   var inputViewed = document.querySelector("#viewed");
@@ -39,20 +49,11 @@ function addShowMovie(recordID) {
     length: inputLength.value,
     viewed: inputViewed.checked,
     wishList: inputWishList.checked,
-    rating: getInputRating()
+    rating: getInputRating(),
+    dateAdded: new Date().toISOString().slice(0, 10)
   });
 
 } // end addShowMovie function
-
-// Function that returns the correct rating
-// prevents adding a rating to a movie that has not been viewed
-function getInputRating() {
-  if (document.querySelector("#viewed").checked) {
-    return document.querySelector("#rating").value;
-  } else {
-    return "";
-  }
-}
 
 // Event listener for detecting when the genre selection is changed
 // this way, I can display the "other genre" textbox if their selection
@@ -60,11 +61,11 @@ function getInputRating() {
 document.querySelector("#genre").addEventListener("change", function(e) {
 
   if (this.options[this.selectedIndex].text === "Other") {
-    document.querySelector("#otherTxt").style.display = "inline";
-    document.querySelector("#otherLbl").style.display = "inline";
+    document.querySelector("#other-txt").style.display = "inline";
+    document.querySelector("#other-lbl").style.display = "inline";
   } else {
-    document.querySelector("#otherTxt").style.display = "none";
-    document.querySelector("#otherLbl").style.display = "none";
+    document.querySelector("#other-txt").style.display = "none";
+    document.querySelector("#other-lbl").style.display = "none";
   }
 
 });
@@ -73,16 +74,16 @@ document.querySelector("#genre").addEventListener("change", function(e) {
 // if so, the rating div should appear
 document.querySelector("#viewed").addEventListener("change", function(e) {
   if (this.checked) {
-    document.querySelector("#ratingDiv").style.display = "block";
+    document.querySelector("#rating-div").style.display = "block";
   } else {
-    document.querySelector("#ratingDiv").style.display = "none";
+    document.querySelector("#rating-div").style.display = "none";
   }
 
 });
 
 // Set paragraph next to rating to 0, then add event listener
 // to detect when value changes and update paragraph with new value
-var currentRating = document.querySelector("#currentRating");
+var currentRating = document.querySelector("#current-rating");
 var ratingSlider = document.querySelector("#rating");
 currentRating.innerHTML = ratingSlider.value;
 
@@ -92,20 +93,20 @@ ratingSlider.addEventListener("input", function(e) {
 
 
 // Event listener for the form submit
-document.querySelector("#addShowMovieForm").addEventListener("submit", function(e){
+document.querySelector("#add-show-movie-form").addEventListener("submit", function(e){
   // For now, added this so that the page doesn't refresh
   // but will probably want to refresh to another page later
   // to display the info that the user just submitted
   e.preventDefault(); 
 
-  // validate that user added at least title
+  // function to validate that user added at least title
   // and whether it's a show or movie
   function validateInput() {
     if (document.querySelector("#title").value === "") {
-      alert("Please enter a title.")
+      alert("Please enter a title.");
       return false;
-    } else if (document.querySelector('input[name="showOrMovie"]:checked') === null) {
-      alert("Please specify whether your entry is a show or movie.")
+    } else if (document.querySelector('input[name="show-or-movie"]:checked') === null) {
+      alert("Please specify whether your entry is a show or movie.");
       return false;
     } else {
       return true;
@@ -120,7 +121,7 @@ document.querySelector("#addShowMovieForm").addEventListener("submit", function(
   // Response handler to manipulate the returned info
   listTablesRspHandler = (obj) => {
     var newRecordID = "";
-    tables = obj['tables'];
+    tables = obj.tables;
 
     function tblExists(table) {
       return table === 'tvlist';
@@ -130,7 +131,7 @@ document.querySelector("#addShowMovieForm").addEventListener("submit", function(
       // table exists, so find highest id in table and add one
 
       queryRspHandler = (obj) => {
-        records = obj['records'];
+        records = obj.records;
 
         // sets the newRecordID to one plus the id of the current
         // record with the highest id
