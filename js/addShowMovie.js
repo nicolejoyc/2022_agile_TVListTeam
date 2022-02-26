@@ -1,5 +1,3 @@
-m3oKey = "";
-
 // Function that returns the correct rating
 // prevents adding a rating to a movie that has not been viewed
 function getInputRating() {

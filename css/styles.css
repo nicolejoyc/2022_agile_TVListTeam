@@ -62,3 +62,19 @@ footer {
   float: center;
   padding: 10px;
 }
+
+/* Styles added by Nicole for displaying records */
+h3 {
+  margin: 1rem 0;
+}
+
+#watch-list div,
+#wish-list div {
+  display: inline-block;
+  height: 10rem;
+  padding: 0 1rem;
+}
+
+main a {
+  font-size: 1.4rem;
+}
