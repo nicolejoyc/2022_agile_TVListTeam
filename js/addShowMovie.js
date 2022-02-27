@@ -9,7 +9,12 @@ function getInputRating() {
 }
 
 function addShowMovie(recordID) {
-  var createTransactor = new DBCreateTransaction();
+  // This is what happens after the new movie/show record is added
+  createRspHandler = (obj) => {
+    location.assign("../index.html");
+  };
+
+  var createTransactor = new DBCreateTransaction(createRspHandler);
 
   var inputTitle = document.querySelector("#title");
   var inputShowOrMovie = document.querySelector('input[name="show-or-movie"]:checked');
@@ -23,7 +28,7 @@ function addShowMovie(recordID) {
   var inputGenre = "";
   var inputLength = document.querySelector("#length");
   var inputViewed = document.querySelector("#viewed");
-  var inputWishList = document.querySelector("#wishlist");
+  var inputWishlist = document.querySelector("#wishlist");
 
   // check if the "other" option is selected
   // if it's selected, inputGenre should be the input from 
@@ -46,7 +51,7 @@ function addShowMovie(recordID) {
     genre: inputGenre,
     length: inputLength.value,
     viewed: inputViewed.checked,
-    wishList: inputWishList.checked,
+    wishlist: inputWishlist.checked,
     rating: getInputRating(),
     dateAdded: new Date().toISOString().slice(0, 10)
   });
@@ -129,26 +134,34 @@ document.querySelector("#add-show-movie-form").addEventListener("submit", functi
       // table exists, so find highest id in table and add one
 
       queryRspHandler = (obj) => {
-        records = obj.records;
+        var records = obj.records;
+        console.log(records);
 
         // sets the newRecordID to one plus the id of the current
         // record with the highest id
         // this way, even if a record between the lowest and highest
         // id is deleted, the next stored id will still be accurate
-        newRecordID = (Number(records[0].id) + 1).toString();
+        var highestID = 0;
+
+        // search through records to find record with highest id
+        records.forEach(record => {
+          if (Number(record.id) > highestID) {
+            highestID = Number(record.id);
+          }
+        });
+
+        newRecordID = (highestID + 1).toString();
+        console.log(newRecordID);
 
         addShowMovie(newRecordID);
       };
 
       var queryTransactor = new DBQueryTransaction(queryRspHandler);
 
-      // sends a request to query the tvList data to only return the
-      // record with the highest id (id desc)
+      // sends a request to query the tvlist data, limit 1000 so we get max possible records
       queryTransactor.sendRequest('tvlist', {
         table: "tvlist",
-        limit: 1,
-        orderBy: "id",
-        order: "desc"
+        limit: 1000,
       });
 
     } else {
