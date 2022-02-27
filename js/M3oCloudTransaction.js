@@ -5,7 +5,6 @@
  * supports sending a cloud service request. The object instantiation
  * requires response and error handling functions. The error handler
  * can be passed as null resulting in default console logging.
- * 
  */
 
 class M3oCloudTransaction {

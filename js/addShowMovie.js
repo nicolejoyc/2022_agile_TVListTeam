@@ -1,3 +1,8 @@
+// This js file is for the addShowMovie html page.
+// It allows for users to be able to enter in one
+// one show/movie at a time, and then they will
+// be redirected to the home page to see their record(s)
+
 // Function that returns the correct rating
 // prevents adding a rating to a movie that has not been viewed
 function getInputRating() {

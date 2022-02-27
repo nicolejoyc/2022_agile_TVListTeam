@@ -15,7 +15,7 @@ updateM3oKey = () => {
   if(!(m3oKey = window.prompt("Please Enter M3OKey:", ""))) {
     return;
   }
-  m3oKeyObj.reset();
+  m3oKeyObj.resetKey();
   // Rember key on this computer, save local
   if(window.confirm("Remember key on this computer?")) {
     m3oKeyObj.setLocalKey(m3oKey);
