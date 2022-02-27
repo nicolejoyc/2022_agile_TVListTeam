@@ -34,10 +34,10 @@ function validateForm() {
 
 }
 
-m3oKey = "";
+// m3oKey = "";
 
-var createTransactor = new DBCreateTransaction();
 
+var userAccountTableName = "useraccount";
 
 // Event listener for the form submit
 document.querySelector("#accountCreation").addEventListener("submit", function(e){
@@ -47,9 +47,29 @@ document.querySelector("#accountCreation").addEventListener("submit", function(e
   var inputLname = document.querySelector("#lname");
   var inputEmail = document.querySelector("#email");
   var inputPassword = document.querySelector("#pwd");
+  var inputFavorite = document.querySelector("#movie");
+  //  var inputgenre1 = document.querySelector('#genre1');
+  // var inputgenre2 = document.querySelector('#genre2');
+  // var inputgenre3 = document.querySelector('#genre3');
+  // var inputgenre4 = document.querySelector('#genre4');
+  // var inputgenre5 = document.querySelector('#genre5');
+  // var inputgenre6 = document.querySelector('#genre6');
+  // var inputgenre7 = document.querySelector('#genre7');
+  // var inputgenre8 = document.querySelector('#genre8');
+  // var inputgenre9 = document.querySelector('#genre9');
+  // var inputgenre10 = document.querySelector('#genre10');
+  // var inputgenre11 = document.querySelector('#genre11');
+  // var inputgenre12 = document.querySelector('#genre12');
+  // var inputgenre13 = document.querySelector('#genre13');
+  // var inputgenre14 = document.querySelector('#genre14');
+  // var inputgenre15 = document.querySelector('#genre15');
+  // var inputgenre16 = document.querySelector('#genre16');
+  // var inputgenre17 = document.querySelector('#genre17');
+  // var inputgenre18 = document.querySelector('#genre18');
+
 
   console.log(inputFname.value + "\n" + inputLname.value + "\n" +
-               inputEmail.value + "\n" + inputPassword.value);
+               inputEmail.value + "\n" + inputPassword.value + "\n" + inputFavorite.value);
 
   var newRecordId = "";
 
@@ -58,10 +78,10 @@ document.querySelector("#accountCreation").addEventListener("submit", function(e
     tables = obj['tables'];
 
     function tblExists(table) {
-      return table === 'users';
+      return table === userAccountTableName;
     }
 
-    if (tables.find(tblExists) === 'users') {
+    if (tables.find(tblExists) === userAccountTableName) {
       // table exists, so find highest id in table and add one
 
       queryRspHandler = (obj) => {
@@ -72,14 +92,50 @@ document.querySelector("#accountCreation").addEventListener("submit", function(e
         // this way, even if a record between the lowest and highest
         // id is deleted, the next stored id will still be accurate
         newRecordId = Number(records[0].id) + 1;
+
+
+        // Calls the sendRequest method from createTransactor instance of the
+        // DBCreateTransaction Class
+        var createTransactor = new DBCreateTransaction();
+        createTransactor.sendRequest(userAccountTableName, {         
+          "id": newRecordId.toString(), 
+          "firstName": inputFname.value,
+          "lastName": inputLname.value,
+          "email": inputEmail.value,
+          "password": inputPassword.value, 
+          "movie": inputFavorite.value
+          
+          // "genre1": inputgenre1.value
+          // "genre2": inputgenre2.value,
+          // "genre3": inputgenre3.value,
+          // "genre4": inputgenre4.value,
+          // "genre5": inputgenre5.value,
+          // "genre6": inputgenre6.value,
+          // "genre7": inputgenre7.value,
+          // "genre8": inputgenre8.value,
+          // "genre9": inputgenre9.value,
+          // "genre10": inputgenre10.value,
+          // "genre11": inputgenre11.value,
+          // "genre12": inputgenre12.value,
+          // "genre13": inputgenre13.value,
+          // "genre14": inputgenre14.value,
+          // "genre15": inputgenre15.value,
+          // "genre16": inputgenre16.value,
+          // "genre17": inputgenre17.value,
+          // "genre18": inputgenre18.value
+
+
+        })
+
+
       };
 
-      var queryTransactor = new DBQueryTransaction(null, queryRspHandler);
+      var queryTransactor = new DBQueryTransaction(queryRspHandler);
 
       // sends a request to query the tvList data to only return the
       // record with the highest id (id desc)
-      queryTransactor.sendRequest('users', {
-        table: "users",
+      queryTransactor.sendRequest(userAccountTableName, {
+        table: userAccountTableName,
         limit: 1,
         orderBy: "id",
         order: "desc"
@@ -91,21 +147,8 @@ document.querySelector("#accountCreation").addEventListener("submit", function(e
     };
   };
 
-  var listTablesTransactor = new DBListTablesTransaction(null, listTablesRspHandler);
+  var listTablesTransactor = new DBListTablesTransaction(listTablesRspHandler);
 
   listTablesTransactor.sendRequest();
-
-  // Calls the sendRequest method from createTransactor instance of the
-  // DBCreateTransaction Class
-  createTransactor.sendRequest("users", {
-    "id": newRecordId.value, 
-    "firstName": inputFname.value,
-    "lastName": inputLname.value,
-    "email": inputEmail.value,
-    "password": inputPassword.value,
-
-  })
-  var queryTransactor = new DBQueryTransaction();
-  queryTransactor.sendRequest("users",  { "query": "firstName == \"Brian\"" });
-  
+ 
 });
