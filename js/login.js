@@ -112,22 +112,34 @@ $(function() {
       createTransactor.sendRequest(userAccountTableName, {
         'id': "1",
         'email': "skukuk1@student.cvtc.edu",
-        'password': 'samantha'
+        'firstName': 'Samantha', 
+        'lastName': 'Kukuk',
+        'password': 'samantha',
+        'movie': ''
       });
       createTransactor.sendRequest(userAccountTableName, {
         'id': "2",
+        'firstName': 'Brian', 
+        'lastName': 'Lind',
         'email': "blind1@student.cvtc.edu",
-        'password': 'brian'
+        'password': 'brian',
+        'movie': ''
       });
       createTransactor.sendRequest(userAccountTableName, {
         'id': "3",
+        'firstName': 'Nicole', 
+        'lastName': 'Crumbaker',
         'email': "ncrumbaker@student.cvtc.edu",
-        'password': 'nicole'
+        'password': 'nicole',
+        'movie': ''
       });
       createTransactor.sendRequest(userAccountTableName, {
         'id': "4",
+        'firstName': 'Richard', 
+        'lastName': 'Valien',
         'email': "rvalien@student.cvtc.edu",
-        'password': 'richard'
+        'password': 'richard',
+        'movie': ''
       });
    });
 });

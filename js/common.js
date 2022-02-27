@@ -2,7 +2,7 @@
  * Application Shared Variables
  */
 signInStorageKey = 'signIn';
-userAccountTableName = 'login';
+userAccountTableName = 'useraccount';
 
 /**
  * M3O Cloud Key Update
