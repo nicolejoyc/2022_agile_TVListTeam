@@ -1,5 +1,6 @@
 /**
  * M3O Database Cloud Service Transaction
+ * 
  */
 class M3oDatabaseTransaction extends M3oCloudTransaction {
   constructor(rspHandler, errHandler) {
