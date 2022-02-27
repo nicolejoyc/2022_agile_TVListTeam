@@ -3,28 +3,34 @@
   <head>
     <meta charset="UTF-8">
     <link href="css/styles.css" rel="stylesheet">
-    <title>TV List - Login</title>
+    <title>TV List - Sign In</title>
   </head>
   <body>
     <nav>
       <a class="header_top_right" href="index.html">Home</a>
       <a class="header_top_right_below" href="accountCreation.html">Sign Up</a>
     </nav>
-    <div class="formContainer">
-      <h1>Login</h1>
-      <form id="loginForm" action="javascript:void(0)">
-        <label for="login-email">Email:</label><br>
-        <input id="login-email" name="login-email" type="text" required><br>
-
-        <label for="login-password">Password:</label><br>
-        <input id="login-password" name="login-password" type="text" required><br>
-
-        <label for="login-m3o-key">M3O Cloud API Key:</label><br>
-        <input id="login-m3o-key" name="login-m3o-key" type="text" required><br>
-
-        <input type="submit" id="login-submit" value="Login"><br>
-      </form>
-    </div>  
+    <div class="form-outer-container">
+      <h1>Sign In</h1>
+      <div class="form-container">
+        <form id="login-form" action="javascript:void(0)">
+          <div class="form-input-block">
+            <label for="login-email">Email:</label><br>
+            <input id="login-email" name="login-email" type="text" required><br>
+          </div>
+          <div class="form-input-block">
+            <label for="login-password">Password:</label><br>
+            <input id="login-password" name="login-password" type="password" required><br>
+          </div>
+          <input type="submit" id="login-submit" value="Login"><br>
+        </form>
+      </div>
+      <div class="form-container">
+        <input type="submit" id="login-update-key" value="Update Key"><br>
+        <!-- Temporary button to create testing database -->
+        <input type="submit" id="login-create-db" value="Create DB">
+      </div>
+    </div>
 
       <!-- JQuery Library -->
       <script
@@ -36,6 +42,7 @@
       <script src="js/M3oKey.js"></script>
       <script src="js/M3oCloudTransaction.js"></script>
       <script src="js/M3oDatabaseTransaction.js"></script>
+      <script src="js/common.js"></script>
       <script src="js/login.js"></script>
   
   </body>

@@ -78,3 +78,43 @@ h3 {
 main a {
   font-size: 1.4rem;
 }
+
+/**
+ * Login Form Styles
+ */
+.form-outer-container {
+  margin: 0.25rem;
+}
+
+.form-outer-container h1 {
+  margin: 0.5rem;
+}
+
+.form-container {
+  margin: 1.5rem 0.5rem;
+}
+
+.form-container label {
+  font-size: 1.25rem;
+  margin: 0.25rem;
+}
+
+.form-input-block {
+  margin-bottom: 0.5rem;
+}
+
+.form-container input {
+  border: solid 1px rgb(202 181 181);
+  margin: 0.15rem;
+  height: 1.5rem;
+  width: 20rem;
+}
+
+.form-container input[type="submit"] {
+  background-color: lightgray;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  margin-top: 0.75rem;
+  width: 10rem;
+  height: 1.5rem;
+}
