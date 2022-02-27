@@ -3,8 +3,6 @@
 function displayRecords(recordList) {
 
   recordList.forEach(record => {
-
-    lineBreak = document.createElement("br");
     
     recordDiv = document.createElement("div");
 
@@ -51,15 +49,14 @@ function displayRecords(recordList) {
       ['Personal Rating', record.rating],
    ]).forEach(loopFields);
 
-    // if the wishList field is true, append to wish-list div
+    // if the wishlist field is true, append to wish-list div
     // else append it to the watch-list div
-    if (record.wishList) {
+    if (record.wishlist) {
       recordContainer = document.querySelector("#wish-list");
     } else {
       recordContainer = document.querySelector("#watch-list");
     }
     recordContainer.appendChild(recordDiv);
-    // recordContainer.appendChild(lineBreak);
 
   });
 
