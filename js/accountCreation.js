@@ -3,28 +3,28 @@
 // Form validation for users
 
 function validateForm() {
-    let x = document.forms["accountCreation"]["fname"].value;
-    if (x == "") {
+    let x = document.forms.accountCreation.fname.value;
+    if (x === "") {
       alert("Please enter your first name");
       return false;
     }
-    let x1 = document.forms["accountCreation"]["lname"].value;
-    if (x1 == "") {
+    let x1 = document.forms.accountCreation.lname.value;
+    if (x1 === "") {
       alert("Please enter your last name");
       return false;
     }
-    let x3 = document.forms["accountCreation"]["email"].value;
-    if (x3 == "") {
+    let x3 = document.forms.accountCreation.email.value;
+    if (x3 === "") {
       alert("Please enter your email address");
       return false;
     }
-    let x4 = document.forms["accountCreation"]["pwd"].value;
-    if (x4 == "") {
+    let x4 = document.forms.accountCreation.pwd.value;
+    if (x4 === "") {
       alert("Please enter a password");
       return false;
     }
-      let x5 = document.forms["accountCreation"]["pwd2"].value;
-      if (x5 != x4) {
+      let x5 = document.forms.accountCreation.pwd2.value;
+      if (x5 !== x4) {
         alert("Your passwords do not match");
         return false;
       }
@@ -62,7 +62,7 @@ document.querySelector("#accountCreation").addEventListener("submit", function(e
 
   // Response handler to manipulate the returned info
   listTablesRspHandler = (obj) => {
-    tables = obj['tables'];
+  var  tables = obj.tables;
 
     function tblExists(table) {
       return table === userAccountTableName;
@@ -72,13 +72,10 @@ document.querySelector("#accountCreation").addEventListener("submit", function(e
       // table exists, so find highest id in table and add one
 
       queryRspHandler = (obj) => {
-        records = obj['records'];
+       var records = obj.records;
 
-        // sets the newRecordId to one plus the id of the current
-        // record with the highest id
-        // this way, even if a record between the lowest and highest
-        // id is deleted, the next stored id will still be accurate
-        newRecordId = Number(records[0].id) + 1;
+        // updated2/28/2022
+        newRecordId = (records.length) ? Number(records[0].id) + 1 : 1;
 
 
         // Calls the sendRequest method from createTransactor instance of the
@@ -94,7 +91,7 @@ document.querySelector("#accountCreation").addEventListener("submit", function(e
           "genres": genreVals.toString()
           
 
-        })
+        });
 
 
       };
@@ -113,7 +110,7 @@ document.querySelector("#accountCreation").addEventListener("submit", function(e
     } else {
       // table does not exist, so set first record to id of 1
       newRecordId = "1";
-    };
+    }
   };
 
   var listTablesTransactor = new DBListTablesTransaction(listTablesRspHandler);
