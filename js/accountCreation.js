@@ -74,10 +74,7 @@ document.querySelector("#accountCreation").addEventListener("submit", function(e
       queryRspHandler = (obj) => {
        var records = obj.records;
 
-        // sets the newRecordId to one plus the id of the current
-        // record with the highest id
-        // this way, even if a record between the lowest and highest
-        // id is deleted, the next stored id will still be accurate
+        // updated2/28/2022
         newRecordId = (records.length) ? Number(records[0].id) + 1 : 1;
 
 
