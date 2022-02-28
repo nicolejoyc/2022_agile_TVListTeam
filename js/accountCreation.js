@@ -94,7 +94,7 @@ document.querySelector("#accountCreation").addEventListener("submit", function(e
         });
 
 
-      }
+      };
 
       var queryTransactor = new DBQueryTransaction(queryRspHandler);
 
@@ -110,7 +110,7 @@ document.querySelector("#accountCreation").addEventListener("submit", function(e
     } else {
       // table does not exist, so set first record to id of 1
       newRecordId = "1";
-    };
+    }
   };
 
   var listTablesTransactor = new DBListTablesTransaction(listTablesRspHandler);
