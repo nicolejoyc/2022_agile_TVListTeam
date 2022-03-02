@@ -15,10 +15,13 @@ $(function() {
    * Already Signed In
    */
   if(sessionStorage.getItem(signInStorageKey) || localStorage.getItem(signInStorageKey)) {
-    if(confirm("Already signed in, sign out?")) {
-      // Sign user out
-      sessionStorage.removeItem(signInStorageKey);
-      localStorage.removeItem(signInStorageKey);
+
+    // Sign out from welcome page?
+    if(window.location.search.search("signout") >= 0) {
+      removeSignInState();
+    }
+    else if(confirm("Already signed in, sign out?")) {
+      removeSignInState();
     }
     // Stay signed-in, redirect to previous page
     else {
