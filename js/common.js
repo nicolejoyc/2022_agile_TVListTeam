@@ -25,3 +25,14 @@ updateM3oKey = () => {
     m3oKeyObj.setSessionKey(m3oKey);
   }
 };
+
+// Is user signed in
+isSignedIn = () => {
+  return(sessionStorage.getItem(signInStorageKey) ||  localStorage.getItem(signInStorageKey));
+};
+
+// Remove sign-in state from local stroage
+let removeSignInState = () => {
+  sessionStorage.removeItem(signInStorageKey);
+  localStorage.removeItem(signInStorageKey);
+};
