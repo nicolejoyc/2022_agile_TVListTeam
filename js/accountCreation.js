@@ -85,7 +85,7 @@ document.querySelector("#accountCreation").addEventListener("submit", function(e
           "movie": inputFavorite.value,
           "genres": genreVals.toString()
         });
-
+        location.href = 'login.html';
         alert("thank you for signing up, please login");
 
       };
@@ -99,8 +99,8 @@ document.querySelector("#accountCreation").addEventListener("submit", function(e
         limit: 1,
         orderBy: "id",
         order: "desc"
+        
       });
-
     } else {
       // table does not exist, so set first record to id of 1
       newRecordId = 1;
@@ -110,4 +110,5 @@ document.querySelector("#accountCreation").addEventListener("submit", function(e
   var listTablesTransactor = new DBListTablesTransaction(listTablesRspHandler);
 
   listTablesTransactor.sendRequest();
+
 });
