@@ -67,9 +67,9 @@ $(function() {
         else {
           alert("You are now signed-in!");
           if(m3oKeyObj.isLocalKey()) {
-            localStorage.setItem(signInStorageKey, `${email} is signed in.`);
+            localStorage.setItem(signInStorageKey, `${email}`);
           } else {
-            sessionStorage.setItem(signInStorageKey, `${email} is signed in.`);
+            sessionStorage.setItem(signInStorageKey, `${email}`);
           }
           newURL = 'index.html';
         }
