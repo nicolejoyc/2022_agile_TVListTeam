@@ -69,6 +69,11 @@ h3 {
   margin: 1rem 0;
 }
 
+#watch-list,
+#wish-list {
+  border-top: 1px solid black;
+}
+
 #watch-list div,
 #wish-list div {
   display: inline-block;
@@ -76,8 +81,18 @@ h3 {
   padding: 0 1rem;
 }
 
-main a {
-  font-size: 1.4rem;
+main > a {
+  color: blue;
+  font-size: 1.8rem;
+}
+
+#watch-list div a,
+#wish-list div a {
+  color: black;
+  font-weight: bold;
+  display: inline-block;
+  margin: 1rem 1rem 0 0;
+  border-top: 2px dotted black;
 }
 
 /**
