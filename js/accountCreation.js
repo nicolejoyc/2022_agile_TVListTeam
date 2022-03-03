@@ -1,5 +1,4 @@
 
-
 // Form validation for users
 
 function validateForm() {
@@ -31,6 +30,7 @@ function validateForm() {
     return true;
 }
 
+
 // Event listener for the form submit
 document.querySelector("#accountCreation").addEventListener("submit", function(e){
   e.preventDefault();
@@ -54,7 +54,7 @@ document.querySelector("#accountCreation").addEventListener("submit", function(e
 
   var newRecordId = 1;
 
-  // Response handler to manipulate the returned info
+  // Response handler 
   listTablesRspHandler = (obj) => {
   var  tables = obj.tables;
 
@@ -66,12 +66,19 @@ document.querySelector("#accountCreation").addEventListener("submit", function(e
       // table exists, so find highest id in table and add one
 
       queryRspHandler = (obj) => {
-       var records = obj.records;
-
+       var records = obj.records;   
+      
         // updated2/28/2022
         if (records.length) {
-         newRecordId = Number(records[0].id) + 1;
-        }
+          newRecordId = Number(records[0].id) + 1;
+         } 
+         // knowing table exists check to see if email address exists
+         records.forEach(record => {
+          if (record.email === inputEmail.value) {
+            document.getElementById("accountCreation").reset();
+            throw new Error(alert("The email address is already being used. Please login or enter a different email"));
+          }; 
+        });
 
         // Calls the sendRequest method from createTransactor instance of the
         // DBCreateTransaction Class
@@ -85,30 +92,28 @@ document.querySelector("#accountCreation").addEventListener("submit", function(e
           "movie": inputFavorite.value,
           "genres": genreVals.toString()
         });
+        // confirmation of sucessful account creation and re direct to login.
         location.href = 'login.html';
         alert("thank you for signing up, please login");
-
       };
 
       var queryTransactor = new DBQueryTransaction(queryRspHandler);
 
-      // sends a request to query the tvList data to only return the
+      // sends a request to query the useraccount data to only return the
       // record with the highest id (id desc)
       queryTransactor.sendRequest(userAccountTableName, {
         table: userAccountTableName,
-        limit: 1,
+        limit: 99,
         orderBy: "id",
-        order: "desc"
-        
+        order: "desc" 
       });
+
     } else {
       // table does not exist, so set first record to id of 1
       newRecordId = 1;
     }
   };
-
   var listTablesTransactor = new DBListTablesTransaction(listTablesRspHandler);
 
   listTablesTransactor.sendRequest();
-
-});
+  });
