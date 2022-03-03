@@ -85,7 +85,7 @@ function displayRecords(recordList) {
 
 function deleteRecord(recordID) {
   deleteRspHandler = (obj) => {
-    location.assign("/index.html");
+    location.assign("index.html");
     console.log("hey");
   };
 
