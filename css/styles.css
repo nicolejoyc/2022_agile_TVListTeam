@@ -76,7 +76,7 @@ h3 {
   padding: 0 1rem;
 }
 
-main a {
+main > a {
   font-size: 1.4rem;
 }
 

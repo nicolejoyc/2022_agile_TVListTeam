@@ -16,7 +16,7 @@ function getInputRating() {
 function addShowMovie(recordID) {
   // This is what happens after the new movie/show record is added
   createRspHandler = (obj) => {
-    location.assign("https://nicolejoyc.github.io/2022_agile_TVListTeam/index.html");
+    location.assign("/index.html");
   };
 
   var createTransactor = new DBCreateTransaction(createRspHandler);
