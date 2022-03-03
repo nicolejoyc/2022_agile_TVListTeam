@@ -61,7 +61,7 @@ function displayRecords(recordList) {
 
     // Set the id and href of delete and edit links
     recordEdit.setAttribute("id", "editRecord" + record.id);
-    recordEdit.setAttribute("href", "/editShowMovie.html");
+    recordEdit.setAttribute("href", "editShowMovie.html");
     recordDelete.setAttribute("id", "deleteRecord" + record.id);
     recordDelete.setAttribute("href", "#");
 
@@ -86,7 +86,6 @@ function displayRecords(recordList) {
 function deleteRecord(recordID) {
   deleteRspHandler = (obj) => {
     location.assign("index.html");
-    console.log("hey");
   };
 
   var deleteTransactor = new DBDeleteTransaction(deleteRspHandler);

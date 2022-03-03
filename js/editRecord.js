@@ -60,7 +60,7 @@ function editRecord(record) {
   function updateShowMovie() {
     
     updateRspHandler = (obj) => {
-      location.assign("index.html");
+      location.assign("https://nicolejoyc.github.io/2022_agile_TVListTeam/index.html");
     };
   
     var updateTransactor = new DBUpdateTransaction(updateRspHandler);

@@ -16,7 +16,7 @@ function getInputRating() {
 function addShowMovie(recordID) {
   // This is what happens after the new movie/show record is added
   createRspHandler = (obj) => {
-    location.assign("index.html");
+    location.assign("https://nicolejoyc.github.io/2022_agile_TVListTeam/index.html");
   };
 
   var createTransactor = new DBCreateTransaction(createRspHandler);
@@ -102,9 +102,6 @@ ratingSlider.addEventListener("input", function(e) {
 
 // Event listener for the form submit
 document.querySelector("#add-show-movie-form").addEventListener("submit", function(e){
-  // For now, added this so that the page doesn't refresh
-  // but will probably want to refresh to another page later
-  // to display the info that the user just submitted
   e.preventDefault(); 
 
   // function to validate that user added at least title
