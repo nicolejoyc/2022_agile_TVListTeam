@@ -90,6 +90,17 @@ function editRecord(record) {
     }
   });
 
+
+  // Set paragraph next to rating to 0, then add event listener
+  // to detect when value changes and update paragraph with new value
+  var currentRating = document.querySelector("#current-rating");
+  var ratingSlider = document.querySelector("#rating");
+  currentRating.innerHTML = ratingSlider.value;
+
+  ratingSlider.addEventListener("input", function(e) {
+    currentRating.innerHTML = ratingSlider.value;
+  });
+
   // listen for the form submit
   document.querySelector("#edit-show-movie-form").addEventListener("submit", function(e) {
     e.preventDefault(); 
