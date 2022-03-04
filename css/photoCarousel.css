@@ -1,0 +1,78 @@
+/* Styles added by Samantha for photo carousel */
+.carousel-wrapper {
+    overflow: hidden;
+    margin: auto;
+    margin: 100px 32%;
+    max-width: auto;
+  }
+  
+  .carousel-wrapper * {
+    box-sizing: content-box;
+  }
+  
+  .carousel {
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+  
+  .photo_carousel {
+    opacity: 0;
+    position: absolute;
+    width: 270px;
+    height: 400px;
+    object-fit: cover;
+    margin-left: auto;
+    padding-left: 65px;
+    z-index: 100px;
+  }
+  
+  .photo_carousel.active {
+    opacity: 1;
+    position: relative;
+    z-index: 900px;
+  }
+  
+  .photo_carousel.prev,
+  .photo_carousel.next {
+    z-index: 800px;
+  }
+  
+  .prev_button,
+  .next_button {
+    position: absolute;
+    top:50%;
+    width: 3rem;
+    height: 3rem;
+    background-color: #FFF;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    cursor: pointer; 
+    z-index: 1001;
+    border:1px solid black;
+  }
+  
+  .prev_button {
+    left:0;
+  }
+  
+  .next_button {
+    left:350px;
+  }
+  
+  .prev_button::after,
+  .next_button::after {
+    content: " ";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 50%;
+    left: 54%;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    transform: translate(-50%, -50%) rotate(135deg);
+  }
+  
+  .next_button::after {
+    left: 47%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
