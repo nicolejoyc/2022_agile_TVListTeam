@@ -71,7 +71,7 @@ document.querySelector("#accountCreation").addEventListener("submit", function(e
           if (record.email === inputEmail.value) {
             document.getElementById("accountCreation").reset();
             throw new Error(alert("The email address is already being used. Please login or enter a different email"));
-          }; 
+          } 
         });
 
         // Calls the sendRequest method from createTransactor instance of the

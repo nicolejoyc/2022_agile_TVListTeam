@@ -1,4 +1,3 @@
-/* This completes the Welcome page story. Previously commited and I'm adding this to commit the story. */
 * {
   margin: 0;
   padding: 0;
@@ -9,6 +8,7 @@
   outline-style: none;
 }
 
+/* Styles added by Samantha for welcome page */
 .header-center {
   color: #000;
   text-align: center;
@@ -86,6 +86,12 @@ h3 {
   margin: 1rem 0;
 }
 
+#watch-list,
+#wish-list,
+.carousel {
+  border-top: 1px solid black;
+}
+
 #watch-list div,
 #wish-list div {
   display: inline-block;
@@ -94,7 +100,17 @@ h3 {
 }
 
 main > a {
-  font-size: 1.4rem;
+  color: blue;
+  font-size: 1.8rem;
+}
+
+#watch-list div a,
+#wish-list div a {
+  color: black;
+  font-weight: bold;
+  display: inline-block;
+  margin: 1rem 1rem 0 0;
+  border-top: 2px dotted black;
 }
 
 /**
