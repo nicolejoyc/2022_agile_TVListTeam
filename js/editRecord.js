@@ -9,6 +9,16 @@ var inputLength = document.querySelector("#length");
 var inputViewed = document.querySelector("#viewed");
 var inputWishlist = document.querySelector("#wishlist");
 
+function displayOtherGenre() {
+  document.querySelector("#other-txt").style.display = "inline";
+  document.querySelector("#other-lbl").style.display = "inline";
+}
+
+function hideOtherGenre() {
+  document.querySelector("#other-txt").style.display = "none";
+  document.querySelector("#other-lbl").style.display = "none";
+}
+
 function loadRecord(record) {
 
   // set html elements to hold record info
@@ -16,7 +26,18 @@ function loadRecord(record) {
   document.querySelector('#' + (record.showOrMovie).toLowerCase()).checked = true;
   inputDirector.value = record.director;
   inputReleaseYear.value = record.releaseYear;
-  inputSelectedGenre.value = record.genre.toLowerCase();
+
+  console.log(record.genre);
+  console.log(genresList);
+  console.log(genresList.includes(record.genre));
+  if (genresList.includes(record.genre)) {
+    inputSelectedGenre.value = record.genre.toLowerCase();
+  } else if (record.genre === "") {
+    inputSelectedGenre.value = "";
+  } else {
+    inputSelectedGenre.value = "other";
+    inputOtherGenre.value = record.genre;
+  }
   inputLength.value = record.length;
   inputViewed.checked = record.viewed;
   inputWishlist.checked = record.wishlist;
@@ -28,6 +49,12 @@ function loadRecord(record) {
   } else {
     document.querySelector("#rating-div").style.display = "none";
     document.querySelector("#rating").value = "";
+  }
+
+  if (inputSelectedGenre.options[inputSelectedGenre.selectedIndex].text === "Other") {
+    displayOtherGenre();
+  } else {
+    hideOtherGenre();
   }
 
 }
@@ -81,6 +108,19 @@ function editRecord(record) {
     });
 
   }
+
+  // Event listener for detecting when the genre selection is changed
+  // this way, I can display the "other genre" textbox if their selection
+  // is "Other"
+  document.querySelector("#genre").addEventListener("change", function(e) {
+
+    if (this.options[this.selectedIndex].text === "Other") {
+      displayOtherGenre();
+    } else {
+      hideOtherGenre();
+    }
+
+  });
 
   document.querySelector("#viewed").addEventListener("change", function(e) {
     if (this.checked) {

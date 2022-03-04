@@ -36,3 +36,25 @@ let removeSignInState = () => {
   sessionStorage.removeItem(signInStorageKey);
   localStorage.removeItem(signInStorageKey);
 };
+
+// Create associative array of genres
+genresList = [
+  "Action",
+  "Animation",
+  "Anime",
+  "Comedy",
+  "Crime",
+  "Documentary",
+  "Drama",
+  "Fantasy",
+  "Historical",
+  "Horror",
+  "Musical",
+  "Mystery",
+  "Reality TV",
+  "Romance",
+  "Romantic Comedy",
+  "Science Fiction",
+  "Thriller",
+  "Western"
+];
