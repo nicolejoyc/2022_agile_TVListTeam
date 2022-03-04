@@ -31,6 +31,21 @@ isSignedIn = () => {
   return(sessionStorage.getItem(signInStorageKey) ||  localStorage.getItem(signInStorageKey));
 };
 
+// Get the user sign-in key
+getSignedInKey = () => {
+  var key;
+  // Get key from session storage variable
+  if((key = sessionStorage.getItem(signInStorageKey))) {
+    return key;
+  }
+  // Get key from local storage varaible
+  else if((key = localStorage.getItem(signInStorageKey))) {
+    return key;
+  }
+  // No sign-in key available, return empty string
+  return "";
+};
+
 // Remove sign-in state from local stroage
 let removeSignInState = () => {
   sessionStorage.removeItem(signInStorageKey);

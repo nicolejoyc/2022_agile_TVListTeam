@@ -10,77 +10,37 @@
   <body>
     <nav>
     <a class="header-top-right" href="index.html">Home</a>
+    <a class="header-top-right-middle" href="profile.html">Profile</a>
     <a class="header-top-right-below" href="login.html">Login</a>
     </nav>
 
-        <h1>Account Creation</h1>
-        <br>
-        <p>Become a member, your email address will be your user name.</p>
-        <br>
-        
+    <div class="form-outer-container">
+      <h1>Account Creation</h1>
 
-          <form id="accountCreation" action="login.html" method="post">
+      <p>Become a member, your email address will be your user name.</p>
 
+      <div class="form-container">
+        <form id="accountCreation" action="login.html" method="post">
 
-            <label for="fname">First Name:</label><br>
-            <input type="text" id="fname" name="fname" value=""><br>
+          <label for="fname">First Name:</label><br>
+          <input type="text" id="fname" name="fname" value=""><br>
 
-            <label for="lname">Last Name:</label><br>
-            <input type="text" id="lname" name="lname" value=""><br>
+          <label for="lname">Last Name:</label><br>
+          <input type="text" id="lname" name="lname" value=""><br>
 
-            <label for="movie">Favorite Movie:</label><br>
-            <input type="text" id="movie" name="movie" value=""><br>
+          <label for="email">Email:</label><br>
+          <input type="email" id="email" name="email" value=""><br>
 
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email" value=""><br>
+          <label for="pwd">Password:</label><br>
+          <input type="password" id="pwd" name="pwd" value=""><br>
 
-            <label for="pwd">Password:</label><br>
-            <input type="password" id="pwd" name="pwd" value=""><br>
+          <label for="pwd2">Confirm Password:</label><br>
+          <input type="password" id="pwd2" name="pwd2"><br>
 
-            <label for="pwd2">Confirm Password:</label><br>
-            <input type="password" id="pwd2" name="pwd2"><br><br>
-
-            <p>Please select your favorite genres.(you may select more than one)</p>
-            <br>
-            <input type="checkbox" id="genre1" name="genre" value="action">
-            <label for="genre1"> Action</label><br>
-            <input type="checkbox" id="genre2" name="genre" value="animation">
-            <label for="genre2"> Animation</label><br>
-            <input type="checkbox" id="genre3" name="genre" value="anime">
-            <label for="genre3"> Anime</label><br>
-            <input type="checkbox" id="genre4" name="genre" value="comedy">
-            <label for="genre4"> Comedy</label><br>
-            <input type="checkbox" id="genre5" name="genre" value="crime">
-            <label for="genre5"> Crime</label><br>
-            <input type="checkbox" id="genre6" name="genre" value="documentary">
-            <label for="genre6"> Documentary</label><br>
-            <input type="checkbox" id="genre7" name="genre" value="drama">
-            <label for="genre7"> Drama</label><br>
-            <input type="checkbox" id="genre8" name="genre" value="fantasy">
-            <label for="genre8"> Fantasy</label><br>
-            <input type="checkbox" id="genre9" name="genre" value="historical">
-            <label for="genre9"> Historical</label><br>
-            <input type="checkbox" id="genre10" name="genre" value="horror">
-            <label for="genre10"> Horror</label><br>
-            <input type="checkbox" id="genre11" name="genre" value="musical">
-            <label for="genre11"> Musical</label><br>
-            <input type="checkbox" id="genre12" name="genre" value="mystery">
-            <label for="genre12"> Mystery</label><br>
-            <input type="checkbox" id="genre13" name="genre" value="realityTV">
-            <label for="genre13"> RealityTV</label><br>
-            <input type="checkbox" id="genre14" name="genre" value="romance">
-            <label for="genre14"> Romance</label><br>
-            <input type="checkbox" id="genre15" name="genre" value="romcom">
-            <label for="genre15"> Romantic Comedy</label><br>
-            <input type="checkbox" id="genre16" name="genre" value="sciFi">
-            <label for="genre16"> Science Fiction</label><br>
-            <input type="checkbox" id="genre17" name="genre" value="thriller">
-            <label for="genre17"> Thriller</label><br>
-            <input type="checkbox" id="genre18" name="genre" value="western">
-            <label for="genre18"> Western</label><br><br>
-
-            <input id="submit" type="submit" value="Submit">
-          </form> 
+          <input id="submit" type="submit" value="Submit">
+        </form>
+      </div>
+    </div>
 
       <footer>
         <small>Copyright &copy; 2022 TV List Team - All rights reserved.</small>

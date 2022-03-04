@@ -42,15 +42,9 @@ document.querySelector("#accountCreation").addEventListener("submit", function(e
   var inputLname = document.querySelector("#lname");
   var inputEmail = document.querySelector("#email");
   var inputPassword = document.querySelector("#pwd");
-  var inputFavorite = document.querySelector("#movie");
-  var checkboxes = document.querySelectorAll('input[name="genre"]:checked');
-  let genreVals = [];
-    checkboxes.forEach((checkbox) => {
-     genreVals.push(checkbox.value);
-    });
-
+  
   console.log(inputFname.value + "\n" + inputLname.value + "\n" +
-               inputEmail.value + "\n" + inputPassword.value + "\n" + inputFavorite.value + "\n" + genreVals);
+               inputEmail.value + "\n" + inputPassword.value);
 
   var newRecordId = 1;
 
@@ -88,9 +82,10 @@ document.querySelector("#accountCreation").addEventListener("submit", function(e
           "firstName": inputFname.value,
           "lastName": inputLname.value,
           "email": inputEmail.value,
-          "password": inputPassword.value, 
-          "movie": inputFavorite.value,
-          "genres": genreVals.toString()
+          "password": inputPassword.value,
+          "nickname": "",
+          "movie": "",
+          "genres": ""
         });
         // confirmation of sucessful account creation and re direct to login.
         location.href = 'login.html';

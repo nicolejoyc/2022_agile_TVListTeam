@@ -28,19 +28,36 @@ a.header-top-right {
   text-align: right;
 }
 
+a.header-top-right-middle {
+  color: #000;
+  text-decoration: none;
+  padding: 10px;
+  float: right;
+  position: absolute;
+  top: 2.5%;
+  right: 0;
+  width: 100px;
+  text-align: right;
+}
+
 a.header-top-right-below {
   color: #000;
   text-decoration: none;
   padding: 10px;
   float: right;
   position: absolute;
-  top: 3%;
+  top: 5%;
   right: 0;
   width: 100px;
   text-align: right;
 }
 
 a.header-top-right:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+a.header-top-right-middle:hover {
   color: #000;
   text-decoration: underline;
 }
@@ -89,6 +106,12 @@ main > a {
 
 .form-outer-container h1 {
   margin: 0.5rem;
+  text-align: center;
+}
+
+.form-outer-container p {
+  font-size: 1.15rem;
+  margin: 2rem 0.5rem 0.25rem;
 }
 
 .form-container {
@@ -96,16 +119,18 @@ main > a {
 }
 
 .form-container label {
-  font-size: 1.25rem;
-  margin: 0.25rem 0.25rem 0.15rem;
+  font-size: 1.15rem;
+  margin: 0.2rem 0.25rem 0.15rem;
   display: inline-block;
 }
 
 .form-container input {
   border: solid 1px rgb(202 181 181);
+  font-size: 1.1rem;
   margin: 0.15rem 0.15rem 0.25rem;
   height: 1.5rem;
   width: 20rem;
+  text-indent: 0.15rem;
 }
 
 .form-container input[type="submit"] {
