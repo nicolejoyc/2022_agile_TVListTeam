@@ -57,7 +57,6 @@ $(function() {
 
       // Update genre checkboxes
       $('input[name="genre"]').each(function(index) {
-        console.log("index: " + index + " " + this.getAttribute('value'));
         if(rsp.records[0].genres.includes(this.getAttribute('value'))) {
           this.setAttribute('checked', true);
         }
