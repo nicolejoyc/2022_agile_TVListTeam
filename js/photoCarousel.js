@@ -1,3 +1,7 @@
+// This js file is for the index html page.
+// This allows for a basic js photo carousel
+
+// base class variables
 let itemClassName = "photo_carousel";
 let items = document.getElementsByClassName(itemClassName),
     totalItems = items.length,
@@ -22,7 +26,6 @@ function moveCarouselTo(slide) {
         // check if there are more than three items in the carousel
         if ((totalItems - 1) > 3) {
 
-            // new slide is checked for out-of-bounds
             if (newPrevious <= 0) {
                 oldPrevious = (totalItems - 1);
             } else if (newNext >= (totalItems - 1)) {
