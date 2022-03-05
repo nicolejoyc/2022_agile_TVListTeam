@@ -46,6 +46,13 @@ getSignedInKey = () => {
   return "";
 };
 
+// Build full path (absolute) URL string
+buildURLString = (targetPage) => {
+  var url = (window.location.href.split('/'));
+  url[url.length - 1] = targetPage;
+  return url.join('/');
+};
+
 // Remove sign-in state from local stroage
 let removeSignInState = () => {
   sessionStorage.removeItem(signInStorageKey);
