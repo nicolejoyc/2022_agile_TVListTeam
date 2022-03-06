@@ -61,6 +61,9 @@ $(function() {
           this.setAttribute('checked', true);
         }
       });
+    } else {
+      alert("Sorry, no profile found.");
+      console.log("Profile query, records found: " + rsp.records.length);
     }
   };
 
