@@ -12,9 +12,6 @@ class M3oDatabaseTransaction extends M3oCloudTransaction {
  * Database Count Transaction
  */
 class DBCountTransaction extends M3oDatabaseTransaction {
-  constructor(rspHandler, errHandler) {
-    super(rspHandler, errHandler);
-  }
   sendRequest(table) {
     super.sendRequest("https://api.m3o.com/v1/db/Count", {
       'table': table
@@ -50,9 +47,6 @@ class DBCreateTransaction extends M3oDatabaseTransaction {
  * Database Delete Transaction
  */
 class DBDeleteTransaction extends M3oDatabaseTransaction {
-  constructor(rspHandler, errHandler) {
-    super(rspHandler, errHandler);
-  }
   sendRequest(table, id) {
     super.sendRequest("https://api.m3o.com/v1/db/Delete", {
       'id': id,
@@ -65,9 +59,6 @@ class DBDeleteTransaction extends M3oDatabaseTransaction {
  * Database Drop Table Transaction
  */
 class DBDropTableTransaction extends M3oDatabaseTransaction {
-  constructor(rspHandler, errHandler) {
-    super(rspHandler, errHandler);
-  }
   sendRequest(table) {
     super.sendRequest("https://api.m3o.com/v1/db/DropTable", {
       'table': table
@@ -79,9 +70,6 @@ class DBDropTableTransaction extends M3oDatabaseTransaction {
  * Database List Tables Transaction
  */
 class DBListTablesTransaction extends M3oDatabaseTransaction {
-  constructor(rspHandler, errHandler) {
-    super(rspHandler, errHandler);
-  }
   sendRequest() {
     super.sendRequest("https://api.m3o.com/v1/db/ListTables", {});
   }
@@ -91,9 +79,6 @@ class DBListTablesTransaction extends M3oDatabaseTransaction {
  * Database Read Transaction
  */
 class DBReadTransaction extends M3oDatabaseTransaction {
-  constructor(rspHandler, errHandler) {
-    super(rspHandler, errHandler);
-  }
   sendRequest(table, id) {
     super.sendRequest("https://api.m3o.com/v1/db/Read", {
       'id': id,
@@ -116,9 +101,6 @@ class DBReadTransaction extends M3oDatabaseTransaction {
  * Example: { "query": "user == 1 && age == 35" }
  */
 class DBQueryTransaction extends M3oDatabaseTransaction {
-  constructor(rspHandler, errHandler) {
-    super(rspHandler, errHandler);
-  }
   sendRequest(table, query) {
     // Create query copy & add table name
     var rqData = JSON.parse(JSON.stringify(query));
@@ -132,9 +114,6 @@ class DBQueryTransaction extends M3oDatabaseTransaction {
  * Database Truncate Table Transaction
  */
 class DBTruncateTransaction extends M3oDatabaseTransaction {
-  constructor(rspHandler, errHandler) {
-    super(rspHandler, errHandler);
-  }
   sendRequest(table) {
     super.sendRequest("https://api.m3o.com/v1/db/Truncate", {
       'table': table
@@ -146,9 +125,6 @@ class DBTruncateTransaction extends M3oDatabaseTransaction {
  * Database Update Transaction
  */
 class DBUpdateTransaction extends M3oDatabaseTransaction {
-  constructor(rspHandler, errHandler) {
-    super(rspHandler, errHandler);
-  }
   sendRequest(table, record) {
     super.sendRequest("https://api.m3o.com/v1/db/Update", {
       'record': record,
