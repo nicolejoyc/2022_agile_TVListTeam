@@ -16,8 +16,24 @@
   padding: 10px;
 }
 
+a.header-top-left {
+  color: #000;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 10px;
+  float: left;
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  width: 100px;
+  text-align: left;
+}
+
 a.header-top-right {
   color: #000;
+  font-size: 1rem;
+  font-weight: 600;
   text-decoration: none;
   padding: 10px;
   float: right;
@@ -28,28 +44,23 @@ a.header-top-right {
   text-align: right;
 }
 
-a.header-top-right-middle {
+a.header-top-right-below {
   color: #000;
+  font-size: 1rem;
+  font-weight: 600;
   text-decoration: none;
   padding: 10px;
   float: right;
   position: absolute;
-  top: 2.5%;
+  top: 3%;
   right: 0;
   width: 100px;
   text-align: right;
 }
 
-a.header-top-right-below {
+a.header-top-left:hover {
   color: #000;
-  text-decoration: none;
-  padding: 10px;
-  float: right;
-  position: absolute;
-  top: 5%;
-  right: 0;
-  width: 100px;
-  text-align: right;
+  text-decoration: underline;
 }
 
 a.header-top-right:hover {
@@ -117,7 +128,7 @@ main > a {
  * Login Form Styles
  */
 .form-outer-container {
-  margin: 0.25rem;
+  margin: 0.5rem;
 }
 
 .form-outer-container h1 {
@@ -127,7 +138,7 @@ main > a {
 
 .form-outer-container p {
   font-size: 1.15rem;
-  margin: 2rem 0.5rem 0.25rem;
+  margin: 2rem 0.6rem 0;
 }
 
 .form-container {
