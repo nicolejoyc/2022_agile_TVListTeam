@@ -27,9 +27,9 @@ function loadRecord(record) {
   inputDirector.value = record.director;
   inputReleaseYear.value = record.releaseYear;
 
-  console.log(record.genre);
-  console.log(genresList);
-  console.log(genresList.includes(record.genre));
+  // this makes sure the dropdown or "other genre" text box
+  // is filled if there is a genre stored in the record.
+  // otherwise, it sets it to the default (app an option)
   if (genresList.includes(record.genre)) {
     inputSelectedGenre.value = record.genre.toLowerCase();
   } else if (record.genre === "") {
@@ -38,6 +38,7 @@ function loadRecord(record) {
     inputSelectedGenre.value = "other";
     inputOtherGenre.value = record.genre;
   }
+
   inputLength.value = record.length;
   inputViewed.checked = record.viewed;
   inputWishlist.checked = record.wishlist;
@@ -87,7 +88,7 @@ function editRecord(record) {
   function updateShowMovie() {
     
     updateRspHandler = (obj) => {
-      location.assign("https://nicolejoyc.github.io/2022_agile_TVListTeam/index.html");
+      location.assign(buildURLString("index.html"));
     };
   
     var updateTransactor = new DBUpdateTransaction(updateRspHandler);
