@@ -61,7 +61,7 @@ function displayRecords(recordList) {
 
     // Set the id and href of delete and edit links
     recordEdit.setAttribute("id", "editRecord" + record.id);
-    recordEdit.setAttribute("href", "https://nicolejoyc.github.io/2022_agile_TVListTeam/editShowMovie.html");
+    recordEdit.setAttribute("href", buildURLString("editShowMovie.html"));
     recordDelete.setAttribute("id", "deleteRecord" + record.id);
     recordDelete.setAttribute("href", "#");
 

@@ -16,7 +16,7 @@ function getInputRating() {
 function addShowMovie(recordID) {
   // This is what happens after the new movie/show record is added
   createRspHandler = (obj) => {
-    location.assign("https://nicolejoyc.github.io/2022_agile_TVListTeam/index.html");
+    location.assign(buildURLString("index.html"));
   };
 
   var createTransactor = new DBCreateTransaction(createRspHandler);
@@ -27,10 +27,8 @@ function addShowMovie(recordID) {
   var inputReleaseYear = document.querySelector("#release-year");
   // Created variables for drop down genre, and other genre, which
   // is the text box.
-  // inputGenre will be assigned below
   var inputSelectedGenre = document.querySelector("#genre");
   var inputOtherGenre = document.querySelector("#other-txt");
-  var inputGenre = "";
   var inputLength = document.querySelector("#length");
   var inputViewed = document.querySelector("#viewed");
   var inputWishlist = document.querySelector("#wishlist");
@@ -39,10 +37,12 @@ function addShowMovie(recordID) {
   // if it's selected, inputGenre should be the input from 
   // the "Other" text box, otherwise inputGenre should be 
   // the value from the drop down list 
-  if (inputSelectedGenre.options[inputSelectedGenre.selectedIndex].text === "Other") {
-    inputGenre = inputOtherGenre.value;
-  } else {
-    inputGenre = inputSelectedGenre.options[inputSelectedGenre.selectedIndex].text;
+  function getInputGenre() {
+    if (inputSelectedGenre.options[inputSelectedGenre.selectedIndex].text === "Other") {
+      return inputOtherGenre.value;
+    } else {
+      return inputSelectedGenre.options[inputSelectedGenre.selectedIndex].text;
+    }
   }
 
   // Calls the sendRequest method from createTransactor instance of the
@@ -53,7 +53,7 @@ function addShowMovie(recordID) {
     showOrMovie: inputShowOrMovie.value,
     director: inputDirector.value,
     releaseYear: inputReleaseYear.value,
-    genre: inputGenre,
+    genre: getInputGenre(),
     length: inputLength.value,
     viewed: inputViewed.checked,
     wishlist: inputWishlist.checked,
@@ -106,17 +106,17 @@ document.querySelector("#add-show-movie-form").addEventListener("submit", functi
 
   // function to validate that user added at least title
   // and whether it's a show or movie
-  function validateInput() {
-    if (document.querySelector("#title").value === "") {
-      alert("Please enter a title.");
-      return false;
-    } else if (document.querySelector('input[name="show-or-movie"]:checked') === null) {
-      alert("Please specify whether your entry is a show or movie.");
-      return false;
-    } else {
-      return true;
-    }
-  }
+  // function validateInput() {
+  //   if (document.querySelector("#title").value === "") {
+  //     alert("Please enter a title.");
+  //     return false;
+  //   } else if (document.querySelector('input[name="show-or-movie"]:checked') === null) {
+  //     alert("Please specify whether your entry is a show or movie.");
+  //     return false;
+  //   } else {
+  //     return true;
+  //   }
+  // }
 
   // check if movie/show table has already been created
   // if created => determine next id
@@ -178,8 +178,10 @@ document.querySelector("#add-show-movie-form").addEventListener("submit", functi
 
   var listTablesTransactor = new DBListTablesTransaction(listTablesRspHandler);
 
-  if (validateInput()) {
+  // Removed the validate function for now to just
+  // use html "required" attributes instead
+  // if (validateInput()) {
     listTablesTransactor.sendRequest();
-  }
+  // }
 
 });
