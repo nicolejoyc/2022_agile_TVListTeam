@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <link href="css/styles.css" rel="stylesheet">
+    <title>TV List Project</title>
+
+  </head>
+
+  <body>
+    <br>
+    <nav>
+      <a class="header-top-left" href="index.html">TVList</a>
+      <a class="header-top-right" href="profile.html">Profile</a>
+      <a class="header-top-right-below" href="login.html?signout=true">Logout</a>
+    </nav>
+    <br>
+        <h1>Account Deletetion</h1>
+        <br>
+        <p>To delete your account, please enter your email address and confirm your password</p>
+        <br>
+        <p><small>*Upon deletion you will be logged out and redirected to the home page</small></p>
+        <br>
+        <p>Account deletions are permanant.</p>
+        <br><br>
+          <form id="accountDeletion" action="login.html" method="post">
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" value=""><br>
+
+            <label for="pwd">Password:</label><br>
+            <input type="password" id="pwd" name="pwd" value=""><br>
+
+            <label for="pwd2">Confirm Password:</label><br>
+            <input type="password" id="pwd2" name="pwd2"><br><br>
+
+
+            <input id="submit" type="submit" value="Submit">
+          </form> 
+
+      <footer>
+        <small>Copyright &copy; 2022 TV List Team - All rights reserved.</small>
+      </footer>
+  <!-- JS files -->
+       <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+       <script src="js/M3oKey.js"></script>
+       <script src="js/M3oCloudTransaction.js"></script>
+       <script src="js/M3oDatabaseTransaction.js"></script>
+       <script src="js/common.js"></script>
+       <script src="js/accountDeletion.js"></script>
+
+ </body>
+</html>
