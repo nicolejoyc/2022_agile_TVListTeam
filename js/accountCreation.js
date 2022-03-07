@@ -88,10 +88,8 @@ document.querySelector("#accountCreation").addEventListener("submit", function(e
           "genres": ""
 
         });
-        
-        queryRspHandler = (obj) => {
-          var buytime = obj.records;  
-        }; 
+        // test firefox
+        validateForm();
         // confirmation of sucessful account creation and re direct to login.
         alert("thank you for signing up, please login");
         location.href = 'login.html';
