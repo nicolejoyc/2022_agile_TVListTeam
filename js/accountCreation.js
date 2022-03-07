@@ -86,10 +86,16 @@ document.querySelector("#accountCreation").addEventListener("submit", function(e
           "nickname": "",
           "movie": "",
           "genres": ""
+
         });
+        
+        queryRspHandler = (obj) => {
+          var buytime = obj.records;  
+        }; 
         // confirmation of sucessful account creation and re direct to login.
-        location.href = 'login.html';
         alert("thank you for signing up, please login");
+        location.href = 'login.html';
+
       };
 
       var queryTransactor = new DBQueryTransaction(queryRspHandler);
