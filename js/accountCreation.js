@@ -1,4 +1,3 @@
-
 // Form validation for users
 
 function validateForm() {
@@ -29,7 +28,6 @@ function validateForm() {
     }
     return true;
 }
-
 
 // Event listener for the form submit
 document.querySelector("#accountCreation").addEventListener("submit", function(e){
@@ -86,14 +84,13 @@ document.querySelector("#accountCreation").addEventListener("submit", function(e
           "nickname": "",
           "movie": "",
           "genres": ""
-
         });
-        // test firefox
+
+        //  firefox browser fix 
         validateForm();
         // confirmation of sucessful account creation and re direct to login.
         alert("thank you for signing up, please login");
         location.href = 'login.html';
-
       };
 
       var queryTransactor = new DBQueryTransaction(queryRspHandler);
@@ -113,6 +110,5 @@ document.querySelector("#accountCreation").addEventListener("submit", function(e
     }
   };
   var listTablesTransactor = new DBListTablesTransaction(listTablesRspHandler);
-
   listTablesTransactor.sendRequest();
-  });
+});
