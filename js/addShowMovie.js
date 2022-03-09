@@ -3,6 +3,9 @@
 // one show/movie at a time, and then they will
 // be redirected to the home page to see their record(s)
 
+// global account id variable
+var acctId;
+
 // Function that returns the correct rating
 // prevents adding a rating to a movie that has not been viewed
 function getInputRating() {
@@ -49,6 +52,7 @@ function addShowMovie(recordID) {
   // DBCreateTransaction Class
   createTransactor.sendRequest("tvlist", {
     id: recordID,
+    accountId: acctId.toString(),
     title: inputTitle.value,
     showOrMovie: inputShowOrMovie.value,
     director: inputDirector.value,
@@ -101,27 +105,23 @@ ratingSlider.addEventListener("input", function(e) {
 
 
 // Event listener for the form submit
-document.querySelector("#add-show-movie-form").addEventListener("submit", function(e){
+document.querySelector("#add-show-movie-form").addEventListener("submit", function(e) {
   e.preventDefault(); 
 
-  // function to validate that user added at least title
-  // and whether it's a show or movie
-  // function validateInput() {
-  //   if (document.querySelector("#title").value === "") {
-  //     alert("Please enter a title.");
-  //     return false;
-  //   } else if (document.querySelector('input[name="show-or-movie"]:checked') === null) {
-  //     alert("Please specify whether your entry is a show or movie.");
-  //     return false;
-  //   } else {
-  //     return true;
-  //   }
-  // }
+  // user should choose at least one between the "Viewed" and "Wishlist" checkbox
+  // they can choose both, but if they select neither, it doesn't make sense
+  function viewedOrWishlistSelected() {
+    if (document.querySelector("#viewed").checked || document.querySelector("#wishlist").checked) {
+      return true;
+    } else {
+      alert("Viewed or Wishlist? - Please select at least one.");
+      return false;
+    }
+  }
 
   // check if movie/show table has already been created
-  // if created => determine next id
-  // if not created => set id of the first record to one more than the
-  // greatest id
+  // if created => set id to 1 more than the current highest id
+  // if not created => set id to 1
 
   // Response handler to manipulate the returned info
   listTablesRspHandler = (obj) => {
@@ -132,12 +132,10 @@ document.querySelector("#add-show-movie-form").addEventListener("submit", functi
       return table === 'tvlist';
     }
 
-    if (tables.find(tblExists) === 'tvlist') {
-      // table exists, so find highest id in table and add one
+    if (tables.find(tblExists) === 'tvlist') { // table exists, so find highest id in table and add one
 
       queryRspHandler = (obj) => {
         var records = obj.records;
-        console.log(records);
 
         // sets the newRecordID to one plus the id of the current
         // record with the highest id
@@ -153,7 +151,6 @@ document.querySelector("#add-show-movie-form").addEventListener("submit", functi
         });
 
         newRecordID = (highestID + 1).toString();
-        console.log(newRecordID);
 
         addShowMovie(newRecordID);
       };
@@ -166,22 +163,41 @@ document.querySelector("#add-show-movie-form").addEventListener("submit", functi
         limit: 1000,
       });
 
-    } else {
-      // table does not exist, so set first record to id of 1
+    } else { // table does not exist, so set first record to id of 1
       newRecordID = "1";
 
-      // Calls the sendRequest method from createTransactor instance of the
-      // DBCreateTransaction Class
       addShowMovie(newRecordID);
     }
   };
 
   var listTablesTransactor = new DBListTablesTransaction(listTablesRspHandler);
 
-  // Removed the validate function for now to just
-  // use html "required" attributes instead
-  // if (validateInput()) {
+  if (viewedOrWishlistSelected()) {
     listTablesTransactor.sendRequest();
-  // }
+  }
 
 });
+
+// User Account Record Query Response Handler
+var queryAccountRspHandler = (obj) => {
+
+  // Update user form
+  if(obj.records.length === 1) {
+
+    // Save the record id
+    acctId = obj.records[0].id;
+
+  } else {
+    alert("Sorry, no account found.");
+    console.log("Account query, records found: " + rsp.records.length);
+  }
+};
+
+// Query for user account
+var emailAddress;
+var queryAccountTransactor = new DBQueryTransaction(queryAccountRspHandler);
+if((emailAddress = getSignedInKey())) {
+  queryAccountTransactor.sendRequest(userAccountTableName, {
+    "query": `email == "${emailAddress}"`
+  });
+}

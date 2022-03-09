@@ -84,4 +84,5 @@ function initCarousel() {
     setEventListeners();
 }
 
-initCarousel();
+// moved line to tvList so it is only loaded if user is signed in
+//initCarousel();
