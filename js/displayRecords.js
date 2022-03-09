@@ -151,11 +151,13 @@ var queryAccountRspHandler = (obj) => {
   }
 };
 
-// Query for user account
-var emailAddress;
-var queryAccountTransactor = new DBQueryTransaction(queryAccountRspHandler);
-if((emailAddress = getSignedInKey())) {
-  queryAccountTransactor.sendRequest(userAccountTableName, {
-    "query": `email == "${emailAddress}"`
-  });
-}
+// // Query for user account
+// // Moved to tvList so it is only loaded if user is signed in
+
+// var emailAddress;
+// var queryAccountTransactor = new DBQueryTransaction(queryAccountRspHandler);
+// if((emailAddress = getSignedInKey())) {
+//   queryAccountTransactor.sendRequest(userAccountTableName, {
+//     "query": `email == "${emailAddress}"`
+//   });
+// }
