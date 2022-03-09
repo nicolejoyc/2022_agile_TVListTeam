@@ -33,7 +33,7 @@ function displayRecord(recordList) {
     var editBtn = document.getElementById("btn1");  
     
     editBtn.onclick = function(){
-      location.href="accountedit.html";
+      location.href="accountEdit.html";
     };  
         
     var deleteBtn = document.getElementById("btn2");  
