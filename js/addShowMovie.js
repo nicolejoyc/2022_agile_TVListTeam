@@ -105,8 +105,19 @@ ratingSlider.addEventListener("input", function(e) {
 
 
 // Event listener for the form submit
-document.querySelector("#add-show-movie-form").addEventListener("submit", function(e){
+document.querySelector("#add-show-movie-form").addEventListener("submit", function(e) {
   e.preventDefault(); 
+
+  // user should choose at least one between the "Viewed" and "Wishlist" checkbox
+  // they can choose both, but if they select neither, it doesn't make sense
+  function viewedOrWishlistSelected() {
+    if (document.querySelector("#viewed").checked || document.querySelector("#wishlist").checked) {
+      return true;
+    } else {
+      alert("Viewed or Wishlist? - Please select at least one.");
+      return false;
+    }
+  }
 
   // check if movie/show table has already been created
   // if created => set id to 1 more than the current highest id
@@ -125,7 +136,6 @@ document.querySelector("#add-show-movie-form").addEventListener("submit", functi
 
       queryRspHandler = (obj) => {
         var records = obj.records;
-        console.log(records);
 
         // sets the newRecordID to one plus the id of the current
         // record with the highest id
@@ -141,7 +151,6 @@ document.querySelector("#add-show-movie-form").addEventListener("submit", functi
         });
 
         newRecordID = (highestID + 1).toString();
-        console.log(newRecordID);
 
         addShowMovie(newRecordID);
       };
@@ -163,7 +172,9 @@ document.querySelector("#add-show-movie-form").addEventListener("submit", functi
 
   var listTablesTransactor = new DBListTablesTransaction(listTablesRspHandler);
 
-  listTablesTransactor.sendRequest();
+  if (viewedOrWishlistSelected()) {
+    listTablesTransactor.sendRequest();
+  }
 
 });
 
