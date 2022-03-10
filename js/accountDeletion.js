@@ -13,6 +13,15 @@ function validateForm() {
   return true;
 }
 
+function confirmDelete() {
+  let text = "Are you sure you want to Delete your account?";
+  if (confirm(text) === true) {
+   return true;
+  } else {
+    return false;
+  }
+}
+
 queryRspHandler = (obj) => {
   record = obj.records[0];
 };
@@ -34,9 +43,10 @@ function deleteRecord(record) {
 }
 document.querySelector("#accountDeletion").addEventListener("submit", function(e) {
   e.preventDefault();
-  if (!validateForm()) {     
+  if (!validateForm() || !confirmDelete() ) {     
     return false;
   }
+  
   deleteRecord(record.id);
   alert("You have deleted your account");
   // added for speedy browsers
