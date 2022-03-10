@@ -1,4 +1,4 @@
-
+// form validation
 function validateForm() {
   let x = document.forms.accountEdit.fname.value;
   if (x === "") {
@@ -28,19 +28,26 @@ function validateForm() {
   return true;
 }
 
-
 var inputFirstName = document.querySelector("#fname");
 var inputLastName = document.querySelector("#lname");
 var inputNickName = document.querySelector("#nname");
 var inputEmail = document.querySelector("#email");
 var inputPassword = document.querySelector("#pwd");
 var inputConfirm = document.querySelector("#pwd2");
+var inputMovie = document.querySelector("#movie");
+var checkboxes = $('input[name="genre"]:checked');
+var genreVals = [];
+    checkboxes.each(function() {
+      genreVals.push(this.getAttribute('value'));
+    });
 
 function loadRecord(record) {
   inputEmail.value = record.email;
   inputFirstName.value = record.firstName;
   inputLastName.value = record.lastName;
   inputNickName.value = record.nickname;
+  inputMovie.value = record.movie;
+  genreVals.value = record.genres;
 }
 
 function editRecord(record) {
@@ -49,7 +56,7 @@ function editRecord(record) {
     updateRspHandler = (obj) => {
       location.assign(buildURLString("accountView.html"));
     };
-  
+      //writes to db
     var updateTransactor = new DBUpdateTransaction(updateRspHandler);
     updateTransactor.sendRequest('useraccount', {
       id: record.id,
@@ -57,7 +64,8 @@ function editRecord(record) {
       lastName: inputLastName.value,
       nickname: inputNickName.value,
       email: inputEmail.value,
-      password: inputPassword.value,      
+      password: inputPassword.value,   
+      movie: inputMovie.value,   
     });
   }
   document.querySelector("#accountEdit").addEventListener("submit", function(e) {
@@ -65,8 +73,6 @@ function editRecord(record) {
     if (!validateForm()) {     
       return false;
     }
-    
-
 
     updateAccount();
   });
