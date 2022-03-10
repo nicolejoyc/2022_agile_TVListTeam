@@ -19,13 +19,9 @@ function displayRecord(recordList) {
     }
     //display user information
     new Map([
-      ['My Account Id', record.id],
       ['My Email', record.email],
       ['First Name', record.firstName],
       ['Last Name', record.lastName],
-      ['Nickname', record.nickname],
-      ['Favorite Movie', record.movie],
-      ['Genres', record.genres],
       ]).forEach(loopFields);
 
       recordContainer = document.querySelector("#info");
