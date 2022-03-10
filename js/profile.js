@@ -10,11 +10,16 @@ $(function() {
 
     let updateRspHandler = (rsp) => {
       if(JSON.stringify(rsp) !== '{}') {
-        alert("Ah oh, something went wrong updating profile!");
+        alert("Something went wrong updating your profile!");
         console.log(rsp);
       } else {
         alert("Profile successfully updated!");
       }
+    };
+
+    // Update Error Handler
+    let updateErrHandler = (err) => {
+      alert("An error occurred storing your information!");
     };
 
     // Fetch user input
@@ -27,7 +32,7 @@ $(function() {
     });
 
     // Update user profile
-    var updateTransactor = new DBUpdateTransaction(updateRspHandler);
+    var updateTransactor = new DBUpdateTransaction(updateRspHandler, updateErrHandler);
     updateTransactor.sendRequest(userAccountTableName, {
       "id": id.toString(),
       "nickname": nickname,
@@ -61,15 +66,28 @@ $(function() {
           this.setAttribute('checked', true);
         }
       });
-    } else {
-      alert("Sorry, no profile found.");
-      console.log("Profile query, records found: " + rsp.records.length);
     }
+    // Duplicate account, shouldn't happen
+    else if(rsp.records.length > 1) {
+      alert("Sorry, an error occurred, multiple profile matches.");
+      console.log("Profile query: " + rsp.records.length + " profile matches");
+      rsp.records.forEach(record => {
+        console.log(record);
+      });
+    }
+    else {
+      alert("Sorry, your profile was not found.");
+    }
+  };
+
+  // Query Error Handler
+  let queryErrHandler = (err) => {
+    alert("An error occurred retrieving your information!");
   };
 
   // Query for user account / profile
   let emailAddress;
-  let queryTransactor = new DBQueryTransaction(queryRspHandler);
+  let queryTransactor = new DBQueryTransaction(queryRspHandler, queryErrHandler);
   if((emailAddress = getSignedInKey())) {
     queryTransactor.sendRequest(userAccountTableName, {
       "query": `email == "${emailAddress}"`
