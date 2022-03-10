@@ -41,10 +41,26 @@ function addShowMovie(recordID) {
   // the "Other" text box, otherwise inputGenre should be 
   // the value from the drop down list 
   function getInputGenre() {
-    if (inputSelectedGenre.options[inputSelectedGenre.selectedIndex].text === "Other") {
+    if (inputSelectedGenre.options[inputSelectedGenre.selectedIndex].text === "Other") { // Selected only "Other"
       return inputOtherGenre.value;
-    } else {
-      return inputSelectedGenre.options[inputSelectedGenre.selectedIndex].text;
+    } else { // Selected at least one option that was not "Other"
+
+      // String that will be built by adding each selected genre
+      var genres = "";
+      for (var option of inputSelectedGenre.options)
+      {
+        if (option.selected) { // if option is selected, add it to genres String UNLESS the option is "Other"
+          if (option.text !== "Other") {
+            if (genres === "") {
+              genres += option.text;
+            } else {
+              genres += ", " + option.text;
+            }
+          }
+        }
+      }
+
+      return genres;
     }
   }
 

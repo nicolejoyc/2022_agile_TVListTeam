@@ -45,9 +45,6 @@ function loadRecord(record) {
   inputEmail.value = record.email;
   inputFirstName.value = record.firstName;
   inputLastName.value = record.lastName;
-  inputNickName.value = record.nickname;
-  inputMovie.value = record.movie;
-  genreVals.value = record.genres;
 }
 
 function editRecord(record) {
@@ -62,10 +59,9 @@ function editRecord(record) {
       id: record.id,
       firstName: inputFirstName.value,
       lastName: inputLastName.value,
-      nickname: inputNickName.value,
       email: inputEmail.value,
       password: inputPassword.value,   
-      movie: inputMovie.value,   
+ 
     });
   }
   document.querySelector("#accountEdit").addEventListener("submit", function(e) {
@@ -73,8 +69,9 @@ function editRecord(record) {
     if (!validateForm()) {     
       return false;
     }
-
     updateAccount();
+    removeSignInState();
+    location.href = 'login.html';
   });
 }
 
