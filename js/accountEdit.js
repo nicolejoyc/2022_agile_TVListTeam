@@ -76,6 +76,16 @@ function editRecord(record) {
 }
 
 $(function() {
+  // Instantiate the header drop-down menu
+  var dropDownMenu = new DropDownMenu($('#dd-menu'));
+  // Update drop-down title to user email address
+  $('#dd-menu span').get(0).innerHTML = getSignedInKey();
+
+  // Collapse drop-down menu on document click
+  $(document).click(function() {
+    $('.wrapper-dropdown').removeClass('active');
+  });
+
   // get the clicked ID from index.html
   var editID = sessionStorage.getItem("editRecordID");
 

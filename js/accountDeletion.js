@@ -56,4 +56,16 @@ document.querySelector("#accountDeletion").addEventListener("submit", function(e
   location.href = 'login.html';
 });
 
+$(function() {
+  // Instantiate the header drop-down menu
+  var dropDownMenu = new DropDownMenu($('#dd-menu'));
+  // Update drop-down title to user email address
+  $('#dd-menu span').get(0).innerHTML = getSignedInKey();
+
+  // Collapse drop-down menu on document click
+  $(document).click(function() {
+    $('.wrapper-dropdown').removeClass('active');
+  });
+});
+
 

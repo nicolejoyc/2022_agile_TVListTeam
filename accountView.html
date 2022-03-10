@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>TV List Project - View My Account</title>
     <link href="css/styles.css" rel="stylesheet">
+    <link href="css/dropdownMenu.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/images/smalllogo.gif">
   </head>
@@ -15,8 +16,13 @@
       </div>
       <nav>
         <a class="header-top-left" href="index.html"><img src="images/tvlistlogo.png" style="width:130px;height:50px;"></a>
-        <a class="header-top-right" href="profile.html">Profile</a>
-        <a class="header-top-right-below" href="login.html?signout=true">Logout</a>
+        <div id="dd-menu" class="wrapper-dropdown"><span>User Email</span>
+          <ul class="dropdown">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="login.html?signout=true">Log Out</a></li>
+          </ul>
+        </div>
       </nav>
     </header>
 
@@ -67,6 +73,7 @@
     <!-- JS files -->
       <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
       <script src="js/M3oKey.js"></script>
+      <script src="js/DropDownMenu.js"></script>
       <script src="js/M3oCloudTransaction.js"></script>
       <script src="js/M3oDatabaseTransaction.js"></script>
       <script src="js/common.js"></script>
