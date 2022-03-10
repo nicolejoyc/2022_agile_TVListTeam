@@ -1,3 +1,4 @@
+// form validation
 function validateForm() {
   let x3 = document.forms.accountDeletion.email.value;
     if (x3 === "") {
@@ -17,8 +18,9 @@ queryRspHandler = (obj) => {
 };
 var queryTransactor = new DBQueryTransaction(queryRspHandler);
 queryTransactor.sendRequest('useraccount', {});
+queryTransactor.sendRequest('tvlist', {});
 
-
+// Deletes user from useraccount and tvlist account
 function deleteRecord(record) {
   deleteRspHandler = (obj) => {
     record = obj.records;
@@ -26,6 +28,9 @@ function deleteRecord(record) {
 
   var deleteTransactor = new DBDeleteTransaction(deleteRspHandler);
   deleteTransactor.sendRequest('useraccount', record);
+
+  deleteTransactor = new DBDeleteTransaction(deleteRspHandler);
+  deleteTransactor.sendRequest('tvlist', record);
 }
 document.querySelector("#accountDeletion").addEventListener("submit", function(e) {
   e.preventDefault();
@@ -34,6 +39,7 @@ document.querySelector("#accountDeletion").addEventListener("submit", function(e
   }
   deleteRecord(record.id);
   alert("You have deleted your account");
+  // added for speedy browsers
   if (!validateForm()) {     
     return false;
   }

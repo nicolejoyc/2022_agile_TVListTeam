@@ -1,96 +1,138 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <link href="css/styles.css" rel="stylesheet">
-  <link href="css/addShowMovie.css" rel="stylesheet">
-  <title>TV List - Edit Show or Movie</title>
-</head>
-<body>
-  <header>
-    <div class="header-center">
-      <h1>Edit Show / Movie</h1>
-    </div>
-    <nav>
-      <a class="header-top-left" href="index.html">TVList</a>
-    </nav>
-  </header>
-  <div>
-    <form id="edit-show-movie-form">
-      <label for="title">Title:</label>
-      <input id="title" name="title" type="text" required>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>TV List - Edit Show or Movie</title>
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/addShowMovie.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/images/smalllogo.gif">
+  </head>
 
+  <body>
+    <header>
+      <div class="header-center">
+        <h1>Edit Show / Movie</h1>
+      </div>
+      <nav>
+       <a class="header-top-left" href="index.html"><img src="images/tvlistlogo.png" style="width:130px;height:50px;"></a>
+       <a class="header-top-right-below" href="login.html?signout=true">Logout</a>
+      </nav>
+    </header>
+
+    <main>
       <div>
-        <input id="show" name="show-or-movie" type="radio" value="Show" required>
-        <label for="show">Show</label>
+        <form id="edit-show-movie-form">
+          <label for="title">Title:</label>
+          <input id="title" name="title" type="text" required>
 
-        <input id="movie" name="show-or-movie" type="radio" value="Movie" required>
-        <label for="movie">Movie</label>
+          <div>
+           <input id="show" name="show-or-movie" type="radio" value="Show" required>
+           <label for="show">Show</label>
+
+            <input id="movie" name="show-or-movie" type="radio" value="Movie" required>
+            <label for="movie">Movie</label>
+          </div>
+
+          <label for="director">Director:</label>
+          <input id="director" name="director" type="text">
+
+          <label for="release-year">Release Year:</label>
+          <input id="release-year" name="release-year" type="text">
+
+          <div>
+            <label for="genre">Genre:</label>
+            <select id="genre" name="genre">
+              <option disabled selected value label="Add an option"></option>
+              <option value="action">Action</option>
+              <option value="animation">Animation</option>
+              <option value="anime">Anime</option>
+              <option value="comedy">Comedy</option>
+              <option value="crime">Crime</option>
+              <option value="documentary">Documentary</option>
+              <option value="drama">Drama</option>
+              <option value="fantasy">Fantasy</option>
+              <option value="historical">Historical</option>
+              <option value="horror">Horror</option>
+              <option value="musical">Musical</option>
+              <option value="mystery">Mystery</option>
+              <option value="reality-tv">Reality TV</option>
+              <option value="romance">Romance</option>
+              <option value="rom-com">Romantic Comedy</option>
+              <option value="sci-fi">Science Fiction</option>
+              <option value="thriller">Thriller</option>
+              <option value="western">Western</option>
+              <option value="other">Other</option>
+            </select>
+
+            <label id="other-lbl" for="other-txt">Enter Other Genre:</label>
+            <input id="other-txt" name="other-txt" type="text">
+          </div>
+
+          <label for="length">Length (minutes):</label>
+          <input id="length" name="length" type="text">
+
+          <input id="viewed" name="viewed" type="checkbox">
+          <label for="viewed">Viewed?</label>
+
+          <input id="wishlist" name="wishlist" type="checkbox">
+          <label for="wishlist">Add to Wishlist?</label>
+
+          <div id="rating-div">
+            <label for="rating">Rating:</label>
+            <input id="rating" type="range" min="0" max="5" value="0">
+            <p id="current-rating"></p>
+          </div>
+
+          <input id="submit" type="submit" value="Save Changes">
+        </form>
       </div>
+    </main>
 
-      <label for="director">Director:</label>
-      <input id="director" name="director" type="text">
-
-      <label for="release-year">Release Year:</label>
-      <input id="release-year" name="release-year" type="text">
-
-      <div>
-        <label for="genre">Genre:</label>
-        <select id="genre" name="genre">
-          <option disabled selected value label="Add an option"></option>
-          <option value="action">Action</option>
-          <option value="animation">Animation</option>
-          <option value="anime">Anime</option>
-          <option value="comedy">Comedy</option>
-          <option value="crime">Crime</option>
-          <option value="documentary">Documentary</option>
-          <option value="drama">Drama</option>
-          <option value="fantasy">Fantasy</option>
-          <option value="historical">Historical</option>
-          <option value="horror">Horror</option>
-          <option value="musical">Musical</option>
-          <option value="mystery">Mystery</option>
-          <option value="reality-tv">Reality TV</option>
-          <option value="romance">Romance</option>
-          <option value="rom-com">Romantic Comedy</option>
-          <option value="sci-fi">Science Fiction</option>
-          <option value="thriller">Thriller</option>
-          <option value="western">Western</option>
-          <option value="other">Other</option>
-        </select>
-
-        <label id="other-lbl" for="other-txt">Enter Other Genre:</label>
-        <input id="other-txt" name="other-txt" type="text">
+    <footer style="position:absolute;">
+      <h2 style="padding-top:10px;padding-left:10px;">About Us</h2>
+      <div class="aboutusfooter">
+        <div>
+          <h4>Who we are:</h4>
+          <img href="index.html"><img src="images/squigglyline.png" style="width:50px;height:10px;">
+          <p>We are Group one from the Agile Programming class.</p><br>
+          <p>Our team includes Brian Lind, Nicole Crumbaker,<br>
+            Samantha Kukuk, and Richard Valien.</p><br>
+          <p>We strive to build a quality tv show/movie list website.</p>
+        </div><br>
+        <div>
+          <h4>Our Mission:</h4>
+          <img href="index.html"><img src="images/squigglyline.png" style="width:50px;height:10px;">
+          <p>Tv List is for avid tv/movie watchers who need to<br>
+            keep track of previously watched shows and movies.</p><br>
+          <p>Our site tracks and rates the TV shows/movies that<br>
+            you have watched and/or want to watch by making a <br>
+            watch/wish list for you.</p><br>
+        </div><br>
+        <div>
+          <h4>How we differ:</h4>
+          <img href="index.html"><img src="images/squigglyline.png" style="width:60px;height:10px;">
+          <p>Unlike other tracking websites,<br>
+            our product is specifically for TV shows/movies that<br>
+            has a personal rating and tracking system for your<br>
+            viewing history.</p>
+        </div><br>
+        <div><img src="images/tvlistlogoversa.png" style="width:130px;height:40px;"></div><br>
+        <div id="copyright">
+          <small style="font-style: italic;">Copyright &copy; 2022 TV List Team - All rights reserved.</small>
+        </div>
       </div>
+    </footer>
 
-      <label for="length">Length (minutes):</label>
-      <input id="length" name="length" type="text">
-
-      <input id="viewed" name="viewed" type="checkbox">
-      <label for="viewed">Viewed?</label>
-
-      <input id="wishlist" name="wishlist" type="checkbox">
-      <label for="wishlist">Add to Wishlist?</label>
-
-      <div id="rating-div">
-        <label for="rating">Rating:</label>
-        <input id="rating" type="range" min="0" max="5" value="0">
-        <p id="current-rating"></p>
-      </div>
-
-      <input id="submit" type="submit" value="Save Changes">
-    </form>
-  </div>
-
-  <!-- JS files -->
-  <!-- ORDER OF FILES IMPORTANT! -->
-  <!-- M3oCloudTransaction must load before M3oDatabaseTransaction
-       which must load before the addShowMovie js file -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script src="js/M3oKey.js"></script>
-  <script src="js/M3oCloudTransaction.js"></script>
-  <script src="js/M3oDatabaseTransaction.js"></script>
-  <script src="js/common.js"></script>
-  <script src="js/editRecord.js"></script>
-</body>
+    <!-- JS files -->
+    <!-- ORDER OF FILES IMPORTANT! -->
+    <!-- M3oCloudTransaction must load before M3oDatabaseTransaction
+         which must load before the addShowMovie js file -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="js/M3oKey.js"></script>
+    <script src="js/M3oCloudTransaction.js"></script>
+    <script src="js/M3oDatabaseTransaction.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/editRecord.js"></script>
+  </body>
 </html>
