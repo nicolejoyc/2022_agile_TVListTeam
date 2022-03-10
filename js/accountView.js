@@ -57,7 +57,6 @@ function displayRecord(recordList) {
       "query": `email == "${email.toString()}"`
     });
     } else {
-    // alert("Sorry, no account found.");
-    // console.log("Account query, records found: " + rsp.records.length);
+      
   }
 };
