@@ -124,6 +124,11 @@ main > a {
   border-top: 2px dotted black;
 }
 
+.title-paragraph {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
 /**
  * Login Form Styles
  */

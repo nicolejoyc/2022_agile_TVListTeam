@@ -27,12 +27,20 @@ function loadRecord(record) {
   inputDirector.value = record.director;
   inputReleaseYear.value = record.releaseYear;
 
+  // genres might be a list of genres, so split it
+  genreArray = record.genre.split(", ");
+
   // this makes sure the dropdown or "other genre" text box
   // is filled if there is a genre stored in the record.
   // otherwise, it sets it to the default (app an option)
-  if (genresList.includes(record.genre)) {
-    inputSelectedGenre.value = record.genre.toLowerCase();
-  } else if (record.genre === "") {
+
+  if (genresList.includes(genreArray[0])) {
+    // if the first item in genreArray is an option other than "Other",
+    // go through genreArray to fill the dropdown with the selected options
+    $.each(genreArray, function(i,e){
+      $("#genre option[value='" + e.toLowerCase().replace(/\s/g, '') + "']").prop("selected", true);
+    });
+  } else if (genreArray[0] === "") {
     inputSelectedGenre.value = "";
   } else {
     inputSelectedGenre.value = "other";
@@ -80,8 +88,24 @@ function editRecord(record) {
   function getInputGenre() {
     if (inputSelectedGenre.options[inputSelectedGenre.selectedIndex].text === "Other") {
       return inputOtherGenre.value;
-    } else {
-      return inputSelectedGenre.options[inputSelectedGenre.selectedIndex].text;
+    } else { // Selected at least one option that was not "Other"
+
+      // String that will be built by adding each selected genre
+      var genres = "";
+      for (var option of inputSelectedGenre.options)
+      {
+        if (option.selected) { // if option is selected, add it to genres String UNLESS the option is "Other"
+          if (option.text !== "Other") {
+            if (genres === "") {
+              genres += option.text;
+            } else {
+              genres += ", " + option.text;
+            }
+          }
+        }
+      }
+
+      return genres;
     }
   }
 
