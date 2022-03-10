@@ -8,16 +8,22 @@
   outline-style: none;
 }
 
+body {
+  background-color: #F4F3EF;
+  font-family: sans-serif,Helvetica,Arial;
+}
+
 /* Styles added by Samantha for welcome page */
 .header-center {
-  color: #000;
+  color: #364C63;
+  background-color: #F4F3EF;
   text-align: center;
   float: center;
   padding: 10px;
 }
 
 a.header-top-left {
-  color: #000;
+  color: #364C63;
   font-size: 1.5rem;
   font-weight: 600;
   text-decoration: none;
@@ -31,7 +37,7 @@ a.header-top-left {
 }
 
 a.header-top-right {
-  color: #000;
+  color: #364C63;
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
@@ -45,7 +51,7 @@ a.header-top-right {
 }
 
 a.header-top-right-below {
-  color: #000;
+  color: #364C63;
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
@@ -59,37 +65,59 @@ a.header-top-right-below {
 }
 
 a.header-top-left:hover {
-  color: #000;
+  color: #364C63;
   text-decoration: underline;
 }
 
 a.header-top-right:hover {
-  color: #000;
+  color: #364C63;
   text-decoration: underline;
 }
 
 a.header-top-right-middle:hover {
-  color: #000;
+  color: #364C63;
   text-decoration: underline;
 }
 
 a.header-top-right-below:hover {
-  color: #000;
+  color: #364C63;
   text-decoration: underline;
 }
 
 main {
-  color: #000;
+  color: #364C63;
+  background-color: #F4F3EF;
   padding: 20px;
 }
 
 footer {
-  color: #000;
+  color: #364C63;
+  background-color: #E9E3D7;
   font-size: 0.6em;
-  font-style: italic;
-  text-align: center;
-  float: center;
   padding: 10px;
+  bottom: 0;
+  width: 100%;
+  height: 100;
+}
+ 
+.aboutusfooter {
+  display: flex;                  
+  flex-direction: row;            
+  flex-wrap: nowrap;              
+  justify-content: space-between;
+  position:relative;
+}
+.aboutusfooter > div {
+  padding-top: 10px;
+  padding-bottom: 10x;
+  padding-left: 10px;
+}
+
+#copyright {
+  padding-right: 30px;
+  position:absolute;
+  right:0px;
+  bottom:0px;
 }
 
 /* Styles added by Nicole for displaying records */
@@ -97,38 +125,37 @@ h3 {
   margin: 1rem 0;
 }
 
-#watch-list,
 #wish-list,
 .carousel {
-  border-top: 1px solid black;
+  border-top: 1px solid #F68712;
 }
 
 #watch-list div,
 #wish-list div {
+  color: #364C63;
   display: inline-block;
   height: 10rem;
   padding: 0 1rem;
 }
 
 main > a {
-  color: blue;
-  font-size: 1.8rem;
+  color: #364C63;
+  font-size: 25px;
 }
 
 #watch-list div a,
 #wish-list div a {
-  color: black;
+  color: #364C63;
   font-weight: bold;
   display: inline-block;
   margin: 1rem 1rem 0 0;
-  border-top: 2px dotted black;
+  border-top: 2px dotted #F68712;
 }
 
-/**
- * Login Form Styles
- */
+/* Form Styles */
 .form-outer-container {
   margin: 0.5rem;
+  background-color: #F4F3EF;
 }
 
 .form-outer-container h1 {
@@ -152,7 +179,7 @@ main > a {
 }
 
 .form-container input {
-  border: solid 1px rgb(202 181 181);
+  border: solid 1px #F68712;
   font-size: 1.1rem;
   margin: 0.15rem 0.15rem 0.25rem;
   height: 1.5rem;
@@ -161,10 +188,46 @@ main > a {
 }
 
 .form-container input[type="submit"] {
-  background-color: lightgray;
+  background-color: #F68712;
   border-radius: 0.25rem;
   font-size: 1rem;
   margin-top: 0.9rem;
   width: 7rem;
   height: 1.5rem;
+}
+
+/* Form Styles for checkbox */
+input[type=checkbox] + label {
+  display: block;
+  margin: 0.2em;
+  cursor: pointer;
+  padding: 0.2em;
+}
+
+input[type=checkbox] {
+  display: none;
+}
+
+input[type=checkbox] + label:before {
+  content: "\2714";
+  border: solid 0.1em #F68712;
+  border-radius: 0.2em;
+  display: inline-block;
+  width: 1em;
+  height: 1.3em;
+  padding-left: 0.2em;
+  margin-right: 0.2em;
+  vertical-align: bottom;
+  color: transparent;
+  transition: .2s;
+}
+
+input[type=checkbox] + label:active:before {
+  transform: scale(0);
+}
+
+input[type=checkbox]:checked + label:before {
+  background-color: #F68712;
+  color: #fff;
+  border-color: #F68712;
 }
