@@ -17,9 +17,8 @@ function confirmDelete() {
   let text = "Are you sure you want to Delete your account?";
   if (confirm(text) === true) {
    return true;
-  } else {
-    return false;
-  }
+  } 
+  return false;
 }
 
 queryRspHandler = (obj) => {
