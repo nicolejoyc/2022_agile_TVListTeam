@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TV List Project</title>
+    <meta charset="utf-8">
+    <title>TV List - Home</title>
     <link href="css/styles.css" rel="stylesheet">
     <link href="css/photoCarousel.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/images/smalllogo.gif">
   </head>
   
   <body>
@@ -15,41 +15,73 @@
         <h1>TV List Project</h1>
       </div>
       <nav>
-        <a class="header-top-left" href="index.html">TVList</a>
+        <a class="header-top-left" href="index.html"><img src="images/tvlistlogo.png" style="width:130px;height:50px;"></a>
         <a class="header-top-right" href="profile.html">Profile</a>
         <a class="header-top-right-below" href="login.html?signout=true">Logout</a>
       </nav>
     </header>
     
     <main>
-      <a href="addShowMovie.html">Add a Show or Movie</a>
+      <a href="addShowMovie.html">Add a Show or Movie</a><br>
+      <img href="index.html"><img src="images/squigglylinelist.png" alt="orange squiggly line" style="width:225px;height:10px;">
       <div id="watch-list">
         <h3>My Watch List</h3>
-      </div><br>
+      </div>
       <div id="wish-list">
         <h3>My Wish List</h3>
       </div>
       <div id="carousel-wrapper">
         <div class="carousel">
           <h3>2022 Most Popular Movies on Netflix</h3>
-          <img class="photo_carousel" src="images/dontLookUp.jpg" alt=""/>
-          <img class="photo_carousel" src="images/tinderSwindler.jpg" alt=""/>
-          <img class="photo_carousel" src="images/throughMyWindow.jpg" alt=""/>
-          <img class="photo_carousel" src="images/royalTreatment.jpg" alt=""/>
-          <img class="photo_carousel" src="images/brazen.jpg" alt=""/>
-          <img class="photo_carousel" src="images/motherAndroid.jpg" alt=""/>
-          <img class="photo_carousel" src="images/homeTeam.jpg" alt=""/>
-          <img class="photo_carousel" src="images/tallGirlTwo.jpg" alt=""/>
-          <img class="photo_carousel" src="images/theEdgeOfWar.jpg" alt=""/>
-          <img class="photo_carousel" src="images/redNotice.jpg" alt=""/>
-          <div class="next_button"></div>
-          <div class="prev_button"></div>
+          <img class="photo-carousel" src="images/dontLookUp.jpg" alt=""/>
+          <img class="photo-carousel" src="images/tinderSwindler.jpg" alt=""/>
+          <img class="photo-carousel" src="images/throughMyWindow.jpg" alt=""/>
+          <img class="photo-carousel" src="images/royalTreatment.jpg" alt=""/>
+          <img class="photo-carousel" src="images/brazen.jpg" alt=""/>
+          <img class="photo-carousel" src="images/motherAndroid.jpg" alt=""/>
+          <img class="photo-carousel" src="images/homeTeam.jpg" alt=""/>
+          <img class="photo-carousel" src="images/tallGirlTwo.jpg" alt=""/>
+          <img class="photo-carousel" src="images/theEdgeOfWar.jpg" alt=""/>
+          <img class="photo-carousel" src="images/redNotice.jpg" alt=""/>
+          <div class="next-button"></div>
+          <div class="prev-button"></div>
         </div>
       </div>
     </main>
     
     <footer>
-      <small>Copyright &copy; 2022 TV List Team - All rights reserved.</small>
+      <h2 style="padding-top:10px;padding-left:10px;">About Us</h2>
+      <div class="aboutusfooter">
+        <div>
+          <h4>Who we are:</h4>
+          <img href="index.html"><img src="images/squigglyline.png" style="width:50px;height:10px;">
+          <p>We are Group one from the Agile Programming class.</p><br>
+          <p>Our team includes Brian Lind, Nicole Crumbaker,<br>
+            Samantha Kukuk, and Richard Valien.</p><br>
+          <p>We strive to build a quality tv show/movie list website.</p>
+        </div><br>
+        <div>
+          <h4>Our Mission:</h4>
+          <img href="index.html"><img src="images/squigglyline.png" style="width:50px;height:10px;">
+          <p>Tv List is for avid tv/movie watchers who need to<br>
+            keep track of previously watched shows and movies.</p><br>
+          <p>Our site tracks and rates the TV shows/movies that<br>
+            you have watched and/or want to watch by making a <br>
+            watch/wish list for you.</p><br>
+        </div><br>
+        <div>
+          <h4>How we differ:</h4>
+          <img href="index.html"><img src="images/squigglyline.png" style="width:60px;height:10px;">
+          <p>Unlike other tracking websites,<br>
+            our product is specifically for TV shows/movies that<br>
+            has a personal rating and tracking system for your<br>
+            viewing history.</p>
+        </div><br>
+        <div><img src="images/tvlistlogoversa.png" style="width:130px;height:40px;"></div><br>
+        <div id="copyright">
+          <small style="font-style: italic;">Copyright &copy; 2022 TV List Team - All rights reserved.</small>
+        </div>
+      </div>
     </footer>
 
     <!-- JQuery Library -->
@@ -63,10 +95,9 @@
     <script src="js/M3oCloudTransaction.js"></script>
     <script src="js/M3oDatabaseTransaction.js"></script>
     <script src="js/common.js"></script>
-    <script src="js/tvList.js"></script>
     <script src="js/displayRecords.js"></script>
     <script src="js/photoCarousel.js"></script>
-
+    <script src="js/tvList.js"></script>
   </body>
 </html>
 

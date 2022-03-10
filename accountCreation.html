@@ -2,59 +2,92 @@
 <html lang="en-US">
   <head>
     <meta charset="utf-8">
+    <title>TV List Project - Create My Account</title>
     <link href="css/styles.css" rel="stylesheet">
-    <title>TV List Project</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/images/smalllogo.gif">
   </head>
+
   <body>
     <header>
       <div class="header-center">
         <h1>Account Creation</h1>
       </div>
       <nav>
-        <a class="header-top-left" href="index.html">TVList</a>
+        <a class="header-top-left" href="index.html"><img src="images/tvlistlogo.png" style="width:130px;height:50px;"></a>
         <a class="header-top-right" href="profile.html">Profile</a>
         <a class="header-top-right-below" href="login.html">Login</a>
       </nav>
     </header>
-    <div class="form-outer-container">
-      <p>Become a member, your email address will be your user name.</p>
-      <div class="form-container">
-        <form id="accountCreation" action="login.html" method="post">
 
-          <label for="fname">First Name:</label><br>
-          <input type="text" id="fname" name="fname" value=""><br>
+    <main>
+      <div class="form-outer-container">
+        <p>Become a member, your email address will be your user name.</p>
+        <div class="form-container">
+          <form id="accountCreation" action="login.html" method="post">
 
-          <label for="lname">Last Name:</label><br>
-          <input type="text" id="lname" name="lname" value=""><br>
+            <label for="fname">First Name:</label><br>
+            <input type="text" id="fname" name="fname" value=""><br>
 
-          <label for="email">Email:</label><br>
-          <input type="email" id="email" name="email" value=""><br>
+            <label for="lname">Last Name:</label><br>
+            <input type="text" id="lname" name="lname" value=""><br>
 
-          <label for="pwd">Password:</label><br>
-          <input type="password" id="pwd" name="pwd" value=""><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" value=""><br>
 
-          <label for="pwd2">Confirm Password:</label><br>
-          <input type="password" id="pwd2" name="pwd2"><br>
+            <label for="pwd">Password:</label><br>
+            <input type="password" id="pwd" name="pwd" value=""><br>
 
-          <input id="submit" type="submit" value="Submit">
-        </form>
+            <label for="pwd2">Confirm Password:</label><br>
+            <input type="password" id="pwd2" name="pwd2"><br>
+
+            <input id="submit" type="submit" value="Submit">
+          </form>
+        </div>
       </div>
-    </div>
+    </main>
 
-      <footer>
-        <small>Copyright &copy; 2022 TV List Team - All rights reserved.</small>
-      </footer>
-  <!-- JS files -->
-       <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-       <script src="js/M3oKey.js"></script>
-       <script src="js/M3oCloudTransaction.js"></script>
-       <script src="js/M3oDatabaseTransaction.js"></script>
-       <script src="js/common.js"></script>
-       <script src="js/accountCreation.js"></script>
+    <footer>
+      <h2 style="padding-top:10px;padding-left:10px;">About Us</h2>
+      <div class="aboutusfooter">
+        <div>
+          <h4>Who we are:</h4>
+          <img href="index.html"><img src="images/squigglyline.png" style="width:50px;height:10px;">
+          <p>We are Group one from the Agile Programming class.</p><br>
+          <p>Our team includes Brian Lind, Nicole Crumbaker,<br>
+            Samantha Kukuk, and Richard Valien.</p><br>
+          <p>We strive to build a quality tv show/movie list website.</p>
+        </div><br>
+        <div>
+          <h4>Our Mission:</h4>
+          <img href="index.html"><img src="images/squigglyline.png" style="width:50px;height:10px;">
+          <p>Tv List is for avid tv/movie watchers who need to<br>
+            keep track of previously watched shows and movies.</p><br>
+          <p>Our site tracks and rates the TV shows/movies that<br>
+            you have watched and/or want to watch by making a <br>
+            watch/wish list for you.</p><br>
+        </div><br>
+        <div>
+          <h4>How we differ:</h4>
+          <img href="index.html"><img src="images/squigglyline.png" style="width:60px;height:10px;">
+          <p>Unlike other tracking websites,<br>
+            our product is specifically for TV shows/movies that<br>
+            has a personal rating and tracking system for your<br>
+            viewing history.</p>
+        </div><br>
+        <div><img src="images/tvlistlogoversa.png" style="width:130px;height:40px;"></div><br>
+        <div id="copyright">
+          <small style="font-style: italic;">Copyright &copy; 2022 TV List Team - All rights reserved.</small>
+        </div>
+      </div>
+    </footer>
 
- </body>
- 
-
-
+    <!-- JS files -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="js/M3oKey.js"></script>
+    <script src="js/M3oCloudTransaction.js"></script>
+    <script src="js/M3oDatabaseTransaction.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/accountCreation.js"></script>
+  </body>
 </html>

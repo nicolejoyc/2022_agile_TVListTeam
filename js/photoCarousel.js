@@ -3,7 +3,7 @@
 
 // base class variables
 // get and count photos
-let photoClassName = "photo_carousel";
+let photoClassName = "photo-carousel";
 let photos = document.getElementsByClassName(photoClassName),
     totalPhotos = photos.length,
     slide = 0;
@@ -72,8 +72,8 @@ function moveNext() {
 }
 
 function setEventListeners() {
-    let previous = document.getElementsByClassName('prev_button')[0],
-        next = document.getElementsByClassName('next_button')[0];
+    let previous = document.getElementsByClassName('prev-button')[0],
+        next = document.getElementsByClassName('next-button')[0];
 
     previous.addEventListener('click', movePrevious);
     next.addEventListener('click', moveNext);
