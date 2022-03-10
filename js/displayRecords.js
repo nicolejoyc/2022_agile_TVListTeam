@@ -23,23 +23,29 @@ function displayRecords(recordList) {
     function loopFields(value, key) {
       
       if (value !== "") {
-
         fieldParagraph = document.createElement("p");
-        fieldSpan = document.createElement("span");
-        spanText = document.createTextNode(key + ":");
-        fieldSpan.appendChild(spanText);
-        fieldParagraph.appendChild(fieldSpan);
-        // For the "Viewed" field, true should be displayed as
-        // "Yes" and false as "No"
-        if (key === "Viewed") {
-          if (value) {
-            paragraphText = document.createTextNode(" Yes");
-          } else {
-            paragraphText = document.createTextNode(" No");
-          }
+
+        if (key === "Title") {
+          paragraphText = document.createTextNode(value);
+          fieldParagraph.setAttribute("class", "title-paragraph");
         } else {
-          paragraphText = document.createTextNode(" " + value);
+          fieldSpan = document.createElement("span");
+          spanText = document.createTextNode(key + ":");
+          fieldSpan.appendChild(spanText);
+          fieldParagraph.appendChild(fieldSpan);
+          // For the "Viewed" field, true should be displayed as
+          // "Yes" and false as "No"
+          if (key === "Viewed") {
+            if (value) {
+              paragraphText = document.createTextNode(" Yes");
+            } else {
+              paragraphText = document.createTextNode(" No");
+            }
+          } else {
+            paragraphText = document.createTextNode(" " + value);
+          }
         }
+
         fieldParagraph.appendChild(paragraphText);
   
         recordDiv.appendChild(fieldParagraph);

@@ -152,6 +152,11 @@ main > a {
   border-top: 2px dotted #F68712;
 }
 
+.title-paragraph {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
 /* Form Styles */
 .form-outer-container {
   margin: 0.5rem;
