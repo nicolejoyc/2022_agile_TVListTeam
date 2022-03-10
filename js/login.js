@@ -26,7 +26,7 @@ $(function() {
     }
     // Stay signed-in, redirect to previous page
     else {
-      window.history.back();
+      window.location.assign('index.html');
     }
   }
 
