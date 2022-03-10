@@ -9,6 +9,7 @@ $(function() {
    */
   if(m3oKeyObj.isKeyUndefined()) {
     updateM3oKey();
+    window.location.reload();
   }
 
   /**
@@ -95,8 +96,9 @@ $(function() {
   /**
    * Update M30 Cloud Service Key Handler
    */
-  $('#login-update-key').click(function(e) {
-    updateM3oKey();
+  $('#login-remove-key').click(function(e) {
+    m3oKeyObj.resetKey();
+    window.location.reload();
   });
 
 });
