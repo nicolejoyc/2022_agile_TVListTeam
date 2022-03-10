@@ -12,6 +12,12 @@
 }
 
 #submit {
+  color: white;
   display: block;
   margin-top: 1rem;
+  background-color: #f68712;
+  border-radius: 0.25rem;
+  width: 7rem;
+  height: 1.5rem;
+  font-size: 1rem;
 }

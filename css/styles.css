@@ -143,6 +143,10 @@ main > a {
   font-size: 25px;
 }
 
+main > a:hover {
+  text-decoration: underline;
+}
+
 #watch-list div a,
 #wish-list div a {
   color: #364c63;
@@ -150,6 +154,11 @@ main > a {
   display: inline-block;
   margin: 1rem 1rem 0 0;
   border-top: 2px dotted #f68712;
+}
+
+#watch-list div a:hover,
+#wish-list div a:hover {
+  border-bottom: 2px dotted #f68712;
 }
 
 .title-paragraph {
