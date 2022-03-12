@@ -1,9 +1,15 @@
-$(function() { 
+$(function() {
 
-   // Redirect to login page when user is not signed in.   
+  /**
+   * Redirect to login page when user is not signed in.
+   */
   if(!(sessionStorage.getItem(signInStorageKey)) && !(localStorage.getItem(signInStorageKey))) {
     location.assign('login.html');
-  } else {
+  }
+  /**
+   * User is signed in, proceed!
+   */
+  else {
     // Instantiate the header drop-down menu
     var dropDownMenu = new DropDownMenu($('#dd-menu'));
     // Update drop-down title to user email address
@@ -22,5 +28,7 @@ $(function() {
         "query": `email == "${emailAddress}"`
       });
     }
-  }  
+
+  }
+  
 });

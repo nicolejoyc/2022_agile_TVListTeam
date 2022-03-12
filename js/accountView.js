@@ -1,62 +1,138 @@
+function confirmDelete() {
+  let text = "Are you sure you want to Delete your account?";
+  if (confirm(text) === true) {
+   return true;
+  } 
+  return false;
+}
 
-function displayRecord(recordList) {
+var acctId;
+
+// for each record in the array, create a div and display
+// each field from the record inside the div
+function displayRecords(recordList) {
+
   recordList.forEach(record => {
-      
+    
     var recordDiv = document.createElement("div");
 
-    //create format for displaying user info
-    function loopFields(value, key) {       
-      if (value !== "") { 
+    // link tags to hold link to edit or delete record
+    var recordEdit = document.createElement("a");
+    var editText = document.createTextNode("Edit Account");
+    recordEdit.appendChild(editText);
+
+    var recordDelete = document.createElement("a");
+    var deleteText = document.createTextNode("Delete Account");
+    recordDelete.appendChild(deleteText);
+
+
+    // function to loop the fields in the Map created below;
+    // only appends filled fields to the recordDiv.
+    function loopFields(value, key) {  
+      if (value !== "") {
         fieldParagraph = document.createElement("p");
+        paragraphText = document.createTextNode(value);
         fieldSpan = document.createElement("span");
         spanText = document.createTextNode(key + ":");
         fieldSpan.appendChild(spanText);
         fieldParagraph.appendChild(fieldSpan);
         paragraphText = document.createTextNode(" " + value);
-        fieldParagraph.appendChild(paragraphText);
+        fieldParagraph.appendChild(paragraphText);  
         recordDiv.appendChild(fieldParagraph);
-      }  
+      }
     }
-    //display user information
+
+    // Create new Map (like associative array) that
+    // has the fields in the correct order and with better
+    // descriptors
     new Map([
-      ['My Email', record.email],
       ['First Name', record.firstName],
-      ['Last Name', record.lastName],
-      ]).forEach(loopFields);
+       ['Last Name', record.lastName],
+       ['Email', record.email],
+    ]).forEach(loopFields);
 
+    // Set the id and href of delete and edit links
+    recordEdit.setAttribute("id", "editRecord" + record.id);
+    recordEdit.setAttribute("href", buildURLString("accountEdit.html"));
+    recordDelete.setAttribute("id", "deleteRecord" + record.id);
+    recordDelete.setAttribute("href", "#");
+
+    // Append edit and delete links to div
+    recordDiv.appendChild(recordEdit);
+    recordDiv.appendChild(recordDelete);
+
+    // append it to the info div
       recordContainer = document.querySelector("#info");
-      recordContainer = document.querySelector("#info");
-      recordContainer.appendChild(recordDiv); 
-    });
+      recordContainer.appendChild(recordDiv);
 
-    // create edit and delete buttons assigned action links
-    var editBtn = document.getElementById("btn1");     
-      editBtn.onclick = function(){
-      location.href="accountEdit.html";
-    };  
-        
-    var deleteBtn = document.getElementById("btn2");   
-      deleteBtn.onclick = function(){
-      location.href="accountDeletion.html";
-    };  
-  }
+  });
+}
 
-  queryRspHandler = (obj) => {
-    records = obj.records;
-    displayRecord(records);
+function deleteRecord(recordID) {
+  deleteRspHandler = (obj) => {
+    location.assign("index.html");
   };
 
-  // User Account Record Query Response Handler
-  var queryAccountRspHandler = (obj) => {
-  if(obj.records.length === 1) {
-    email = obj.records[0].email;
+  var deleteTransactor = new DBDeleteTransaction(deleteRspHandler);
+  // Delete user account
+  deleteTransactor.sendRequest('useraccount', recordID);
+}
 
-  var queryTransactor = new DBQueryTransaction(queryRspHandler);
-    // return records from useraccount
-    queryTransactor.sendRequest('useraccount', {
-      "query": `email == "${email.toString()}"`
+function listenForEditDelete(recordList) {
+
+  recordList.forEach(record => {
+
+    // add an event listener for the onclick of the edit link
+    // id of edit link will be ("#editRecord" + record.id)
+    document.querySelector("#editRecord" + record.id).addEventListener("click", function() {
+
+      // add the id of the clicked item to a session storage variable
+      sessionStorage.setItem("editRecordID", record.id);
+
     });
-    } else {
+
+    // add an event listener for the onlick of the delete link
+    // id of delete link will be (#"deleteRecord" + record.id)
+    document.querySelector("#deleteRecord" + record.id).addEventListener("click", function(e) {
+      e.preventDefault();
+      if (!confirmDelete() ) {     
+        return false;
+      }  deleteRecord(record.id);
+      alert("You have deleted your account");
+      removeSignInState();
+      location.href = 'login.html';
+    });
+
+  });
+}
+
+queryRspHandler = (obj) => {
+  // put the array of records from the useraccount table
+  // into a variable
+  records = obj.records;
+
+  // call function to display the records
+  displayRecords(records);
+  listenForEditDelete(records);
+};
+
+// User Account Record Query Response Handler
+var queryAccountRspHandler = (obj) => {
+
+  // Update user form
+  if(obj.records.length === 1) {
+
+    // Save the record id
+    id = obj.records[0].id;
+
+    var queryTransactor = new DBQueryTransaction(queryRspHandler);
+
+    // return all record from useraccount
+    queryTransactor.sendRequest('useraccount', {
+      "query": `id == "${id.toString()}"`
       
-  }
+    });
+    
+  } 
+
 };

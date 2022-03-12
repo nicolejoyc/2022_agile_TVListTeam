@@ -1,4 +1,3 @@
-// form validation
 function validateForm() {
   let x = document.forms.accountEdit.fname.value;
   if (x === "") {
@@ -10,81 +9,68 @@ function validateForm() {
       alert("Please enter your last name");
     return false;
   }
-  let x3 = document.forms.accountEdit.email.value;
-    if (x3 === "") {
-      alert("Please enter your email address");
-    return false;
-  }
-  let x4 = document.forms.accountEdit.pwd.value;
-    if (x4 === "") {
+  let x2 = document.forms.accountEdit.pwd.value;
+    if (x2 === "") {
       alert("Please enter a password");
     return false;
   }
-  let x5 = document.forms.accountEdit.pwd2.value;
-    if (x5 !== x4) {
+  let x3 = document.forms.accountEdit.pwd2.value;
+    if (x3 !== x2) {
       alert("Your passwords do not match");
     return false;
   }
   return true;
 }
 
+
+// initialize and assign variables of the html elements for use in functions
 var inputFirstName = document.querySelector("#fname");
 var inputLastName = document.querySelector("#lname");
-var inputNickName = document.querySelector("#nname");
-var inputEmail = document.querySelector("#email");
 var inputPassword = document.querySelector("#pwd");
-var inputConfirm = document.querySelector("#pwd2");
-var inputMovie = document.querySelector("#movie");
-var checkboxes = $('input[name="genre"]:checked');
-var genreVals = [];
-    checkboxes.each(function() {
-      genreVals.push(this.getAttribute('value'));
-    });
 
 function loadRecord(record) {
-  inputEmail.value = record.email;
+
+  // set html elements to hold record info
   inputFirstName.value = record.firstName;
   inputLastName.value = record.lastName;
+  inputPassword.value = record.password;
 }
 
+
 function editRecord(record) {
+
+
   function updateAccount() {
     
     updateRspHandler = (obj) => {
       location.assign(buildURLString("accountView.html"));
     };
-      //writes to db
+  
     var updateTransactor = new DBUpdateTransaction(updateRspHandler);
+
     updateTransactor.sendRequest('useraccount', {
       id: record.id,
       firstName: inputFirstName.value,
       lastName: inputLastName.value,
-      email: inputEmail.value,
-      password: inputPassword.value,   
- 
+      password: inputPassword.value,
     });
+    
   }
+
+
+  // listen for the form submit
   document.querySelector("#accountEdit").addEventListener("submit", function(e) {
-    e.preventDefault(); 
+    e.preventDefault();
     if (!validateForm()) {     
       return false;
     }
     updateAccount();
-    removeSignInState();
-    location.href = 'login.html';
   });
+
 }
 
-$(function() {
-  // Instantiate the header drop-down menu
-  var dropDownMenu = new DropDownMenu($('#dd-menu'));
-  // Update drop-down title to user email address
-  $('#dd-menu span').get(0).innerHTML = getSignedInKey();
 
-  // Collapse drop-down menu on document click
-  $(document).click(function() {
-    $('.wrapper-dropdown').removeClass('active');
-  });
+$(function() {
 
   // get the clicked ID from index.html
   var editID = sessionStorage.getItem("editRecordID");
@@ -97,8 +83,23 @@ $(function() {
       // call editRecord with the single record
       editRecord(record);
   };
+
   var readTransactor = new DBReadTransaction(readRspHandler);
+
   // return record with clicked ID
   readTransactor.sendRequest('useraccount', editID);
 
 });
+$(function() {
+  // Instantiate the header drop-down menu
+  var dropDownMenu = new DropDownMenu($('#dd-menu'));
+  // Update drop-down title to user email address
+  $('#dd-menu span').get(0).innerHTML = getSignedInKey();
+
+  // Collapse drop-down menu on document click
+  $(document).click(function() {
+    $('.wrapper-dropdown').removeClass('active');
+  });
+});
+
+
