@@ -18,11 +18,10 @@ function displayRecords(recordList) {
 
     // link tags to hold link to edit or delete record
     var recordEdit = document.createElement("a");
-    var editText = document.createTextNode("Edit Account");
+    var editText = document.createTextNode("Edit");
     recordEdit.appendChild(editText);
-
     var recordDelete = document.createElement("a");
-    var deleteText = document.createTextNode("Delete Account");
+    var deleteText = document.createTextNode("Delete");
     recordDelete.appendChild(deleteText);
 
 
@@ -56,13 +55,14 @@ function displayRecords(recordList) {
     recordEdit.setAttribute("href", buildURLString("accountEdit.html"));
     recordDelete.setAttribute("id", "deleteRecord" + record.id);
     recordDelete.setAttribute("href", "#");
+   
 
     // Append edit and delete links to div
     recordDiv.appendChild(recordEdit);
     recordDiv.appendChild(recordDelete);
 
     // append it to the info div
-      recordContainer = document.querySelector("#info");
+      recordContainer = document.querySelector("#watch-list");
       recordContainer.appendChild(recordDiv);
 
   });

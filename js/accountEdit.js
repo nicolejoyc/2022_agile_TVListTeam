@@ -33,7 +33,6 @@ function loadRecord(record) {
   // set html elements to hold record info
   inputFirstName.value = record.firstName;
   inputLastName.value = record.lastName;
-  inputPassword.value = record.password;
 }
 
 
