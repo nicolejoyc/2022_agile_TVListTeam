@@ -1,78 +1,77 @@
 /* Styles added by Samantha for photo carousel */
 .carousel-wrapper {
-    overflow: hidden;
-    margin: auto;
-    margin: 100px 32%;
-    max-width: auto;
-  }
-  
-  .carousel-wrapper * {
-    box-sizing: content-box;
-  }
-  
-  .carousel {
-    transform-style: preserve-3d;
-  }
-  
-  .photo-carousel {
-    opacity: 0;
-    position: absolute;
-    width: 270px;
-    height: 400px;
-    object-fit: cover;
-    margin-left: auto;
-    padding-left: 65px;
-    z-index: 100px;
-  }
-  
-  .photo-carousel.active {
-    opacity: 1;
-    position: relative;
-    z-index: 900px;
-  }
-  
-  .photo-carousel.prev,
-  .photo-carousel.next {
-    z-index: 800px;
-  }
-  
-  .prev-button,
-  .next-button {
-    position: absolute;
-    top: 50%;
-    width: 3rem;
-    height: 3rem;
-    background-color: #F4F3EF;
-    transform: translateY(-50%);
-    border-radius: 50%;
-    cursor: pointer; 
-    z-index: 1001;
-    border: 1px solid #E66A2C;
-  }
-  
-  .prev-button {
-    left: 0;
-  }
-  
-  .next-button {
-    left: 350px;
-  }
-  
-  .prev-button:after,
-  .next-button:after {
-    content: " ";
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    top: 50%;
-    left: 54%;
-    border-right: 2px solid #E66A2C;
-    border-bottom: 2px solid #E66A2C;
-    transform: translate(-50%, -50%) rotate(135deg);
-  }
-  
-  .next-button:after {
-    left: 47%;
-    transform: translate(-50%, -50%) rotate(-45deg);
-  }
-  
+  overflow: hidden;
+  margin: auto;
+  margin: 100px 32%;
+  max-width: auto;
+}
+
+.carousel-wrapper * {
+  box-sizing: content-box;
+}
+
+.carousel {
+  transform-style: preserve-3d;
+}
+
+.photo-carousel {
+  opacity: 0;
+  position: absolute;
+  width: 270px;
+  height: 400px;
+  object-fit: cover;
+  margin-left: auto;
+  padding-left: 65px;
+  z-index: 100px;
+}
+
+.photo-carousel.active {
+  opacity: 1;
+  position: relative;
+  z-index: 900px;
+}
+
+.photo-carousel.prev,
+.photo-carousel.next {
+  z-index: 800px;
+}
+
+.prev-button,
+.next-button {
+  position: absolute;
+  top: 50%;
+  width: 3rem;
+  height: 3rem;
+  background-color: #f4f3ef;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1001;
+  border: 1px solid #e66a2c;
+}
+
+.prev-button {
+  left: 0;
+}
+
+.next-button {
+  left: 350px;
+}
+
+.prev-button::after,
+.next-button::after {
+  content: " ";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 50%;
+  left: 54%;
+  border-right: 2px solid #e66a2c;
+  border-bottom: 2px solid #e66a2c;
+  transform: translate(-50%, -50%) rotate(135deg);
+}
+
+.next-button::after {
+  left: 47%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
