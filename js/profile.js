@@ -21,6 +21,9 @@ $(function() {
     $(document).click(function() {
       $('.wrapper-dropdown').removeClass('active');
     });
+
+    // Personalize header
+    updateHeaderUsername($('div.header-center h1'), "'s Profile");
     
     /**
      * Profile Form Submit Handler
@@ -33,6 +36,9 @@ $(function() {
           console.log(rsp);
         } else {
           alert("Profile successfully updated!");
+          // Remove username in storage
+          sessionStorage.removeItem(usernameStorageKey);
+          window.location.reload();
         }
       };
 

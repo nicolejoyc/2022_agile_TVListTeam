@@ -2,6 +2,7 @@
  * Application Shared Variables
  */
 signInStorageKey = 'signIn';
+usernameStorageKey = 'username';
 userAccountTableName = 'useraccount';
 
 /**
@@ -44,6 +45,45 @@ getSignedInKey = () => {
   }
   // No sign-in key available, return empty string
   return "";
+};
+
+// Update username / nickname in header & session storage
+let updateHeaderUsername = ($obj, str) => {
+
+  // Update using username form session storage
+  if ((username = sessionStorage.getItem(usernameStorageKey))) {
+    $obj.get(0).innerHTML = username + str;
+    $obj.css("opacity", 1);
+  }
+  // Query for user account / profile
+  else {
+    // Account query response
+    let usernameQueryRspHandler = (rsp) => {
+
+      // Update user form
+      if(rsp.records.length === 1) {
+
+        // Update name information
+        let username = rsp.records[0].firstName;
+        if(rsp.records[0].nickname) {
+          username = rsp.records[0].nickname;
+        }
+        if($obj) {
+          $obj.get(0).innerHTML = username + str;
+          $obj.css("opacity", 1);
+        }
+        sessionStorage.setItem(usernameStorageKey, username);
+      }
+    };
+    // Query for user account
+    let emailAddress;
+    let queryTransactor = new DBQueryTransaction(usernameQueryRspHandler);
+    if((emailAddress = getSignedInKey())) {
+      queryTransactor.sendRequest(userAccountTableName, {
+        "query": `email == "${emailAddress}"`
+      });
+    }
+  }
 };
 
 // Build full path (absolute) URL string

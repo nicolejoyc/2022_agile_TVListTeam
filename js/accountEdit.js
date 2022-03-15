@@ -42,6 +42,7 @@ function editRecord(record) {
   function updateAccount() {
     
     updateRspHandler = (obj) => {
+      sessionStorage.removeItem(usernameStorageKey);
       location.assign(buildURLString("accountView.html"));
     };
   

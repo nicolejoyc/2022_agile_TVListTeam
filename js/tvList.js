@@ -20,6 +20,9 @@ $(function() {
       $('.wrapper-dropdown').removeClass('active');
     });
 
+    // Personalize header
+    updateHeaderUsername($('div.header-center h1'), "'s TV List");
+
     // Query for user account
     var emailAddress;
     var queryAccountTransactor = new DBQueryTransaction(queryAccountRspHandler);
