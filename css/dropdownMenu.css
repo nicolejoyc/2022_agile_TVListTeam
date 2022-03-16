@@ -54,10 +54,6 @@
   overflow: hidden;
 }
 
-.wrapper-dropdown .dropdown:last-child {
-  border-bottom: 1px solid #e66a2c;
-}
-
 .wrapper-dropdown span {
   display: inline-block;
   padding: 0 2rem;
@@ -104,4 +100,8 @@
 .wrapper-dropdown.active .dropdown {
   border-bottom: 1px solid rgba(0 0 0 20%);
   max-height: 200px;
+}
+
+.wrapper-dropdown.active .dropdown:last-child {
+  border-bottom: 1px solid #e66a2c;
 }
