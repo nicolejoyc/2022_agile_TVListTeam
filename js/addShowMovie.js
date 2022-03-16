@@ -5,6 +5,18 @@
 
 // global account id variable
 var acctId;
+let addTitle = document.querySelector("#title");
+
+
+// Prevents duplicate titles, but can be overidden incase of movie remakes.
+function confirmAdd() {
+  let text = "That movie title you entered was already found in the database. Did you want to add it again? If so click ok " ;
+  if (confirm(text) === true) {
+   return true;
+  } 
+  document.getElementById("add-show-movie-form").reset();
+  return false;
+}
 
 // Function that returns the correct rating
 // prevents adding a rating to a movie that has not been viewed
@@ -24,9 +36,9 @@ function addShowMovie(recordID) {
 
   var createTransactor = new DBCreateTransaction(createRspHandler);
 
-  var inputTitle = document.querySelector("#title");
-  var inputShowOrMovie = document.querySelector('input[name="show-or-movie"]:checked');
-  var inputDirector = document.querySelector("#director");
+  let inputTitle = document.querySelector("#title");
+  let inputShowOrMovie = document.querySelector('input[name="show-or-movie"]:checked');
+  let inputDirector = document.querySelector("#director");
   var inputReleaseYear = document.querySelector("#release-year");
   // Created variables for drop down genre, and other genre, which
   // is the text box.
@@ -148,11 +160,17 @@ document.querySelector("#add-show-movie-form").addEventListener("submit", functi
       return table === 'tvlist';
     }
 
-    if (tables.find(tblExists) === 'tvlist') { // table exists, so find highest id in table and add one
-
+    if (tables.find(tblExists) === 'tvlist') { 
+      
+      // table exists, check for duplicate titles, if 
+      //none exist, then proceed to find the highest id in table and add one
       queryRspHandler = (obj) => {
         var records = obj.records;
-
+        records.forEach(record => {
+          if (record.title === addTitle.value) {
+            confirmAdd();
+          } 
+        });
         // sets the newRecordID to one plus the id of the current
         // record with the highest id
         // this way, even if a record between the lowest and highest
