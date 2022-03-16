@@ -18,7 +18,6 @@ body {
   color: #364c63;
   background-color: #f4f3ef;
   text-align: center;
-  float: center;
   padding: 10px;
 }
 
@@ -97,7 +96,6 @@ footer {
   padding: 10px;
   bottom: 0;
   width: 100%;
-  height: 100;
 }
 
 .aboutusfooter {
@@ -216,6 +214,7 @@ input[type="checkbox"] + label {
   margin: 0.2em;
   cursor: pointer;
   padding: 0.2em;
+  max-width: 15rem;
 }
 
 input[type="checkbox"] {
@@ -244,4 +243,51 @@ input[type="checkbox"]:checked + label::before {
   background-color: #f68712;
   color: #fff;
   border-color: #f68712;
+}
+
+/* Styles for M3O Key & Login form */
+#m3o-key-remember + label,
+#login-remember + label {
+  margin-top: 0.8rem;
+  margin-left: -0.1rem;
+}
+
+#m3o-key-error-message {
+  color: red;
+  margin-left: 0.2rem;
+}
+
+#m3o-key-input {
+  font-size: 0.9rem;
+  width: 28rem;
+}
+
+#m3o-key-submit-container {
+  position: relative;
+}
+
+#m3o-key-reset {
+  margin-top: 1.5rem;
+}
+
+#m3o-key-clear-entry {
+  position: absolute;
+  margin-top: 1.4rem;
+  top: -0.5rem;
+  left: 8rem;
+}
+
+div.form-outer-container:nth-child(2) {
+  margin-top: 2.5rem;
+}
+
+#login-email-error-message,
+#login-password-error-message {
+  color: red;
+  margin: 0.5rem 0.2rem 0;
+  display: none;
+}
+
+#login-submit {
+  margin-top: 0.2rem;
 }

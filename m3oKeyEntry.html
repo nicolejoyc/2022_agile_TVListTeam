@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>TV List - Sign In</title>
     <link href="css/styles.css" rel="stylesheet">
+    <link href="css/dropdownMenu.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/images/smalllogo.gif">
   </head>
@@ -11,40 +12,27 @@
   <body>
     <header>
       <div class="header-center">
-        <h1>Sign In</h1>
+        <h1>M3O Key Entry</h1>
       </div>
       <nav>
-        <a class="header-top-left" href="index.html"><img src="images/tvlistlogo.png" alt="tvlist" style="width:130px;height:50px;"></a>
-        <a class="header-top-right" href="accountCreation.html">Sign Up</a>
+        <a class="header-top-left" href="index.html"><img src="images/tvlistlogo.png" style="width:130px;height:50px;"></a>
       </nav>
     </header>
     <main>
       <div class="form-outer-container">
-        <p>Please sign in.</p>
-        <div class="form-container">
-          <form id="login-form" action="javascript:void(0)">
-            <label for="login-email">Email:</label><br>
-            <input id="login-email" name="login-email" type="text" required>
-            <p id="login-email-error-message">Account with email address not found.</p>
-            <br>
-            <label for="login-password">Password:</label><br>
-            <input id="login-password" name="login-password" type="password" required>
-            <p id="login-password-error-message">Password does not match account.</p>
-            <br>
-            <input type="checkbox" id="login-remember" name="login-remember">
-            <label for="login-remember"> Remember on this computer.</label><br>
-
-            <input type="submit" id="login-submit" value="Login"><br>
-          </form>
-        </div>
-      </div>
-      <div class="form-outer-container">
+        <p>
+          Please enter your personal M3O Cloud Services key.
+        </p>
         <div class="form-container">
           <form id="m3o-key-form" action="javascript:void(0)">
-            <label for="m3o-key-input">M3O Cloud Service Key:</label><br>
-            <input id="m3o-key-input" name="m3o-key-input" type="text" disabled><br>
+            <label for="m3o-key-input">Key:</label><br>
+            <input id="m3o-key-input" name="m3o-key-input" type="text"><br>
+            <div id="m3o-key-error-message"></div>
+            <input type="checkbox" id="m3o-key-remember" name="m3o-key-remember">
+            <label for="m3o-key-remember"> Remember key on this computer.</label><br>
             <div id="m3o-key-submit-container">
-              <input type="submit" id="m3o-key-reset" value="Reset Key"><br>
+              <input type="submit" id="m3o-key-save" value="Save Key"><br>
+              <input type="submit" id="m3o-key-clear-entry" value="Clear Entry"><br>
             </div>
           </form>
         </div>
@@ -56,7 +44,7 @@
       <div class="aboutusfooter">
         <div>
           <h4>Who we are:</h4>
-          <img src="images/squigglyline.png" alt ="" style="width:50px;height:10px;">
+          <img href="index.html"><img src="images/squigglyline.png" style="width:50px;height:10px;">
           <p>We are Group one from the Agile Programming class.</p><br>
           <p>Our team includes Brian Lind, Nicole Crumbaker,<br>
             Samantha Kukuk, and Richard Valien.</p><br>
@@ -64,7 +52,7 @@
         </div><br>
         <div>
           <h4>Our Mission:</h4>
-          <img src="images/squigglyline.png" alt="" style="width:50px;height:10px;">
+          <img href="index.html"><img src="images/squigglyline.png" style="width:50px;height:10px;">
           <p>Tv List is for avid tv/movie watchers who need to<br>
             keep track of previously watched shows and movies.</p><br>
           <p>Our site tracks and rates the TV shows/movies that<br>
@@ -73,13 +61,13 @@
         </div><br>
         <div>
           <h4>How we differ:</h4>
-          <img src="images/squigglyline.png" alt="" style="width:60px;height:10px;">
+          <img href="index.html"><img src="images/squigglyline.png" style="width:60px;height:10px;">
           <p>Unlike other tracking websites,<br>
             our product is specifically for TV shows/movies that<br>
             has a personal rating and tracking system for your<br>
             viewing history.</p>
         </div><br>
-        <div><img src="images/tvlistlogoversa.png" style="width:130px;height:40px;" alt=""></div><br>
+        <div><img src="images/tvlistlogoversa.png" style="width:130px;height:40px;"></div><br>
         <div id="copyright">
           <small style="font-style: italic;">Copyright &copy; 2022 TV List Team - All rights reserved.</small>
         </div>
@@ -96,7 +84,8 @@
     <script src="js/M3oKey.js"></script>
     <script src="js/M3oCloudTransaction.js"></script>
     <script src="js/M3oDatabaseTransaction.js"></script>
+    <script src="js/DropDownMenu.js"></script>
     <script src="js/common.js"></script>
-    <script src="js/login.js"></script>
+    <script src="js/m3oKeyEntry.js"></script>
   </body>
 </html>

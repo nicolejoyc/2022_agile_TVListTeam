@@ -29,7 +29,7 @@ updateM3oKey = () => {
 
 // Is user signed in
 isSignedIn = () => {
-  return(sessionStorage.getItem(signInStorageKey) ||  localStorage.getItem(signInStorageKey));
+  return(sessionStorage.getItem(signInStorageKey) || localStorage.getItem(signInStorageKey));
 };
 
 // Get the user sign-in key

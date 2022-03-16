@@ -1,104 +1,95 @@
 $(function() {
 
-  /**
-   * M3O Cloud Service Access
-   * 
-   * Check whether a M3O Cloud Service key has been saved for this
-   * application. If a key is not present, allow the user to enter
-   * their access key.
-   */
+  // Always sign out
+  removeSignInState();
+
+  // Check for M3O access key
   if(m3oKeyObj.isKeyUndefined()) {
-    updateM3oKey();
-    window.location.reload();
-  }
-
-  /**
-   * Already Signed In
-   */
-  if(sessionStorage.getItem(signInStorageKey) || localStorage.getItem(signInStorageKey)) {
-
-    // Sign out from welcome page?
-    if(window.location.search.search("signout") >= 0) {
-      removeSignInState();
-    }
-    else if(confirm("Already signed in, sign out?")) {
-      removeSignInState();
-    }
-    // Stay signed-in, redirect to previous page
-    else {
+      // Key not present, redirect home.
       window.location.assign('index.html');
-    }
   }
+
+  // Load current M3O Key
+  $('#m3o-key-input').val(m3oKeyObj.getKey());
 
   /**
    * Login Form Submit Handler
    */
   $('#login-submit').click(function(e) {
 
-    // Retrieve form input
-    let email = $('#login-email').val();
-    let password = $('#login-password').val();
-    
-    // Empty fields?
-    if(email === "" || password === "") {
-      return;
-    }
-    e.preventDefault();
+      // Retrieve form input
+      let email = $('#login-email').val();
+      let password = $('#login-password').val();
+      let remember = $('#login-remember').is(":checked");
+      
+      // Empty fields?
+      if(email === "" || password === "") {
+         return;
+      }
+      e.preventDefault();
 
-    /**
-     * Database Query Response Handler
-     */
-    queryRspHandler = (obj) => {
+      /**
+       * Database Query Response Handler
+       */
+      queryRspHandler = (obj) => {
 
-      var newURL = 'login.html';
-      // Error code is not present
-      if(obj.Code === undefined) {
-        // Email address not found
-        if(obj.records.length === 0) {
-          alert("Email address not found");
-          if(confirm("Would you like to sign up?")) {
-            newURL = 'accountCreation.html';
+          var newURL = 'login.html';
+
+          // Check for error code presence
+          if(obj.code === undefined) {
+
+              // User account not found
+              if(obj.records.length === 0) {
+                  $('#login-email-error-message').css('display', "block");
+                  $('#login-email').css('border', "2px solid red");
+                  return true;
+              }
+              // Password doesn't match DB record
+              else if(obj.records[0].password !== password) {
+                $('#login-password-error-message').css('display', "block");
+                $('#login-password').css('border', "2px solid red");
+                return true;
+              }
+              // Sign-in success!
+              else {
+                  if(remember) {
+                      localStorage.setItem(signInStorageKey, `${email}`);
+                  } else {
+                      sessionStorage.setItem(signInStorageKey, `${email}`);
+                  }
+                  newURL = 'index.html';
+              }
           }
-        }
-        // Password doesn't match
-        else if(obj.records[0].password !== password) {
-          alert("Incorrect password");
-        }
-        // Sign-in success!
-        else {
-          alert("You are now signed-in!");
-          if(m3oKeyObj.isLocalKey()) {
-            localStorage.setItem(signInStorageKey, `${email}`);
-          } else {
-            sessionStorage.setItem(signInStorageKey, `${email}`);
+          // Unauthorized key, prompt to update
+          else if(obj.status === 'Unauthorized') {
+              alert("Unauthorized M3O Cloud Key");
+              m3oKeyObj.resetKey();
           }
-          newURL = 'index.html';
-        }
-      }
-      // Unauthorized key, prompt to update
-      else if(obj.Status === 'Unauthorized') {
-        alert("Unauthorized M3O Cloud API Key, please enter valid key");
-        updateM3oKey();
-      }
-      // Unknown error
-      else {
-        alert(`ERROR:${obj.Status}`);
-      }
-      // Redirect to URL
-      window.location.assign(newURL);
-    };
-    // Send query request for user email address
-    queryTransactor = new DBQueryTransaction(queryRspHandler);
-    queryTransactor.sendRequest(userAccountTableName, { 'query': `email == "${email}"` } );
-    return false;
+          // Unknown error
+          else {
+              alert(`ERROR:${obj.status}`);
+          }
+          // Redirect to URL
+          window.location.assign(newURL);
+      };
+      // Send query request for user email address
+      queryTransactor = new DBQueryTransaction(queryRspHandler);
+      queryTransactor.sendRequest(userAccountTableName, { 'query': `email == "${email}"` } );
+      return false;
   });
 
-  /**
-   * Update M30 Cloud Service Key Handler
-   */
-  $('#login-remove-key').click(function(e) {
-    m3oKeyObj.resetKey();
-    window.location.reload();
+  // Update email entry appearance to normal
+  $('#login-email').change(function(e) {
+      if($('#login-email-error-message').css('display') === "block") {
+          $('#login-email-error-message').css('display', "none");
+          $('#login-email').css('border', "1px solid #f68712");
+      }
+  });
+
+  // Reset M3O key, redirect home
+  $('#m3o-key-reset').click(function(e) {
+      m3oKeyObj.resetKey();
+      window.location.assign('index.html');
   });
 
 });

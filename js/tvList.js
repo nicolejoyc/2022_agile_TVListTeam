@@ -1,11 +1,23 @@
 $(function() {
 
   /**
+   * M3O Cloud Service Access
+   * 
+   * Check whether a M3O Cloud Service key has been saved for this
+   * application. If a key is not present, user must enter
+   * their access key.
+   */
+   if(m3oKeyObj.isKeyUndefined()) {
+    location.assign('m3oKeyEntry.html');
+  }
+
+  /**
    * Redirect to login page when user is not signed in.
    */
-  if(!(sessionStorage.getItem(signInStorageKey)) && !(localStorage.getItem(signInStorageKey))) {
+  else if(!isSignedIn()) {
     location.assign('login.html');
   }
+
   /**
    * User is signed in, proceed!
    */
