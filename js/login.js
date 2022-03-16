@@ -1,7 +1,17 @@
 $(function() {
 
+  const loginKey = 'loginKey';
+
   // Always sign out
   removeSignInState();
+
+  // Temporary username storage
+  if((loginEmail = sessionStorage.getItem(loginKey))) {
+    $('#login-email').val(loginEmail);
+    $('#login-password-error-message').css('display', "block");
+    $('#login-password').css('border', "2px solid red");
+    sessionStorage.removeItem(loginKey);
+  }
 
   // Check for M3O access key
   if(m3oKeyObj.isKeyUndefined()) {
@@ -46,9 +56,8 @@ $(function() {
               }
               // Password doesn't match DB record
               else if(obj.records[0].password !== password) {
-                $('#login-password-error-message').css('display', "block");
-                $('#login-password').css('border', "2px solid red");
-                return true;
+                // Save email for page reload
+                sessionStorage.setItem(loginKey, `${email}`);
               }
               // Sign-in success!
               else {
@@ -76,14 +85,6 @@ $(function() {
       queryTransactor = new DBQueryTransaction(queryRspHandler);
       queryTransactor.sendRequest(userAccountTableName, { 'query': `email == "${email}"` } );
       return false;
-  });
-
-  // Update email entry appearance to normal
-  $('#login-email').change(function(e) {
-      if($('#login-email-error-message').css('display') === "block") {
-          $('#login-email-error-message').css('display', "none");
-          $('#login-email').css('border', "1px solid #f68712");
-      }
   });
 
   // Reset M3O key, redirect home
