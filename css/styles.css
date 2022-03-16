@@ -14,6 +14,10 @@ body {
 }
 
 /* Styles added by Samantha for welcome page */
+header {
+  min-height: 65px;
+}
+
 .header-center {
   color: #364c63;
   background-color: #f4f3ef;
@@ -29,7 +33,7 @@ a.header-top-left {
   padding: 10px;
   float: left;
   position: absolute;
-  top: 5px;
+  top: 3px;
   left: 10px;
   width: 100px;
   text-align: left;
