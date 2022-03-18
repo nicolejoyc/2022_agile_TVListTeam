@@ -153,7 +153,9 @@ var queryAccountRspHandler = (obj) => {
 
   } else {
     alert("Sorry, no account found.");
-    console.log("Account query, records found: " + rsp.records.length);
+    console.log("Account query, records found: " + obj.records.length);
+    removeSignInState();
+    window.location.reload();
   }
 };
 

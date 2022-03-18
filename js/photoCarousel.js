@@ -208,8 +208,10 @@ function initCarousel() {
         acctId = obj.records[0].id;
     
         } else {
-        alert("Sorry, no account found.");
-        console.log("Account query, records found: " + rsp.records.length);
+          alert("Sorry, no account found.");
+          console.log("Account query, records found: " + obj.records.length);
+          removeSignInState();
+          window.location.reload();
         }
     };
 
