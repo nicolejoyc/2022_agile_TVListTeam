@@ -102,6 +102,19 @@ footer {
   width: 100%;
 }
 
+.listdisplay {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  position: relative;
+}
+
+.listdisplay > div {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
 .aboutusfooter {
   display: flex;
   flex-flow: row nowrap;
@@ -123,13 +136,10 @@ footer {
 }
 
 /* Styles added by Nicole for displaying records */
-h3 {
-  margin: 1rem 0;
-}
-
-#wish-list,
-.carousel {
-  border-top: 1px solid #f68712;
+#wish-list {
+  border-left: 1px solid #f68712;
+  padding-left: 50px;
+  padding-right: 30px;
 }
 
 #watch-list div,
@@ -138,6 +148,8 @@ h3 {
   display: inline-block;
   height: 10rem;
   padding: 1rem;
+  padding-bottom: 30px;
+  padding-top: 20px;
 }
 
 main > a {
