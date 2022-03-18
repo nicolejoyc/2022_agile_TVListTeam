@@ -68,12 +68,52 @@ function displayRecords(recordList) {
   });
 }
 
-function deleteRecord(recordID) {
-  deleteRspHandler = (obj) => {
-    location.assign("index.html");
+function deleteTVListRecords(recordID) {
+
+  var numRecords;
+
+  let completeDeletion = () => {
+    alert("You have deleted your account");
+    location.href = 'login.html';
   };
 
-  var deleteTransactor = new DBDeleteTransaction(deleteRspHandler);
+  let deleteRspHandler = (obj) => {
+    numRecords -= 1;
+    if(numRecords === 0) {
+      completeDeletion();
+    }
+  };
+
+  let queryRspHandler = (obj) => {
+    numRecords = obj.records.length;
+    if(numRecords) {
+      obj.records.forEach(record => {
+        let deleteTransactor = new DBDeleteTransaction(deleteRspHandler);
+        // Delete tvlist record
+        deleteTransactor.sendRequest('tvlist', record.id);
+      });
+    } else {
+      completeDeletion();
+    }
+  };
+
+  // Query for user account / profile
+  let emailAddress;
+  let queryTransactor = new DBQueryTransaction(queryRspHandler);
+  if((emailAddress = getSignedInKey())) {
+    queryTransactor.sendRequest('tvlist', {
+      "query": `accountId == "${recordID}"`
+    });
+  }
+}
+
+function deleteRecord(recordID) {
+  let deleteRspHandler = (obj) => {
+    deleteTVListRecords(recordID);
+    removeSignInState();
+  };
+
+  let deleteTransactor = new DBDeleteTransaction(deleteRspHandler);
   // Delete user account
   deleteTransactor.sendRequest('useraccount', recordID);
 }
@@ -98,9 +138,6 @@ function listenForEditDelete(recordList) {
       if (!confirmDelete() ) {     
         return false;
       }  deleteRecord(record.id);
-      alert("You have deleted your account");
-      removeSignInState();
-      location.href = 'login.html';
     });
 
   });
