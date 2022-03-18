@@ -7,7 +7,7 @@
     <link href="css/photoCarousel.css" rel="stylesheet">
     <link href="css/dropdownMenu.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="/images/smalllogo.gif">
+    <link rel="icon" type="image/x-icon" href="/images/smalllogo.png">
   </head>
   
   <body>
@@ -30,15 +30,25 @@
     <main>
       <a href="addShowMovie.html">Add a Show or Movie</a><br>
       <a href="index.html"></a><img src="images/squigglylinelist.png" alt="orange squiggly line" style="width:225px;height:10px;">
-      <div id="watch-list">
-        <h3>My Watch List</h3>
-      </div>
-      <div id="wish-list">
-        <h3>My Wish List</h3>
-      </div>
-      <div id="carousel-wrapper">
+
+        <div class="listdisplay">
+          <div>
+            <div id="watch-list">
+              <h3>My Watch List</h3>
+            </div>
+          </div>
+
+          <div>
+            <div id="wish-list" style="float: right;width:720px;">
+              <h3>My Wish List</h3>
+            </div>
+          </div>
+        </div>
+        <h3 style="border-top: 1px solid #f68712;padding-top:20px;">2022 Most Popular Movies on Netflix</h3>
+        <br>
+        <h3 style="margin-left:400px;">- Click each picture below to add the movie to your wish list.</h3>
+        <div class="carousel-wrapper">
         <div class="carousel">
-          <h3>2022 Most Popular Movies on Netflix - Click to Add to Wishlist</h3>
           <img class="photo-carousel" src="images/dontLookUp.jpg" alt=""/>
           <img class="photo-carousel" src="images/tinderSwindler.jpg" alt=""/>
           <img class="photo-carousel" src="images/throughMyWindow.jpg" alt=""/>
