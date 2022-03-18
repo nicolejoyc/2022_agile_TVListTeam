@@ -41,8 +41,8 @@ document.querySelector("#accountCreation").addEventListener("submit", function(e
   var inputEmail = document.querySelector("#email");
   var inputPassword = document.querySelector("#pwd");
   
-  console.log(inputFname.value + "\n" + inputLname.value + "\n" +
-               inputEmail.value + "\n" + inputPassword.value);
+  // console.log(inputFname.value + "\n" + inputLname.value + "\n" +
+  //              inputEmail.value + "\n" + inputPassword.value);
 
   var newRecordId = 1;
 
