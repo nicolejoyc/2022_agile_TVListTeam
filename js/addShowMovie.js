@@ -167,7 +167,7 @@ document.querySelector("#add-show-movie-form").addEventListener("submit", functi
       queryRspHandler = (obj) => {
         var records = obj.records;
         records.forEach(record => {
-          if (record.title === addTitle.value) {
+          if (record.accountId === acctId && record.title === addTitle.value) {
             confirmAdd();
           } 
         });
