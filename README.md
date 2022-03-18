@@ -1,1 +1,1 @@
-Starting repository for TV List project!
+Project first release on March 18th 2022!
