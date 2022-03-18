@@ -178,21 +178,43 @@ function editRecord(record) {
 
 $(function() {
 
-  // get the clicked ID from index.html
-  var editID = sessionStorage.getItem("editRecordID");
+  /**
+   * Redirect to login page when user is not signed in.
+   */
+  if(!isSignedIn()) {
+    location.assign('login.html');
+  }
 
-  readRspHandler = (obj) => {
-      record = obj.records[0];
+  /**
+   * User is signed in, proceed!
+   */
+  else {
+    // Instantiate the header drop-down menu
+    var dropDownMenu = new DropDownMenu($('#dd-menu'));
+    // Update drop-down title to user email address
+    $('#dd-menu span').get(0).innerHTML = getSignedInKey();
 
-      // call loadRecord to fill in html elements
-      loadRecord(record);
-      // call editRecord with the single record
-      editRecord(record);
-  };
+    // Collapse drop-down menu on document click
+    $(document).click(function() {
+      $('.wrapper-dropdown').removeClass('active');
+    });
 
-  var readTransactor = new DBReadTransaction(readRspHandler);
+    // get the clicked ID from index.html
+    var editID = sessionStorage.getItem("editRecordID");
 
-  // return record with clicked ID
-  readTransactor.sendRequest('tvlist', editID);
+    readRspHandler = (obj) => {
+        record = obj.records[0];
 
+        // call loadRecord to fill in html elements
+        loadRecord(record);
+        // call editRecord with the single record
+        editRecord(record);
+    };
+
+    var readTransactor = new DBReadTransaction(readRspHandler);
+
+    // return record with clicked ID
+    readTransactor.sendRequest('tvlist', editID);
+
+  }
 });
