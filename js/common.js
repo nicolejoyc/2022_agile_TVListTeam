@@ -97,6 +97,7 @@ buildURLString = (targetPage) => {
 let removeSignInState = () => {
   sessionStorage.removeItem(signInStorageKey);
   localStorage.removeItem(signInStorageKey);
+  sessionStorage.removeItem(usernameStorageKey);
 };
 
 // Create associative array of genres
